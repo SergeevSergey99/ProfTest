@@ -5,7 +5,7 @@ import Quiz from "./components/Quiz";
 
 function App() {
   return (
-    <div className="App">
+    <div className="Quiz">
       <p>Header</p>
       <Quiz />
       <p>Footer</p>

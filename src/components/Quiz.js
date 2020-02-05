@@ -1,6 +1,7 @@
 import React from "react";
 import { QuizData } from "./QuizData";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 class Quiz extends React.Component {
   state = {
     userAnswer: null,
@@ -80,12 +81,12 @@ class Quiz extends React.Component {
     if (this.state.currentQuestion <= QuizData.length - 1) {
       return (
         <div className="App">
-          <p>Название Профессии: {this.state.question}</p>
+          <p>Название: {this.state.question}</p>
           <span>
             {" "}
-            Профессии {this.state.currentQuestion} из {QuizData.length}
+            {this.state.currentQuestion} из {QuizData.length}
           </span>
-          <p>Картинка профессии:</p>
+          <p>Картинка:</p>
           <p>
             <img
               src={this.state.image}
@@ -94,12 +95,29 @@ class Quiz extends React.Component {
               width="250"
             />
           </p>
-          <p>Оцените ее интересность:</p>
 
-          <button onClick={this.nextQuestionHandlerNOT}>Не интересна</button>
-          <button onClick={this.nextQuestionHandlerMEDIUM}>Любопытна</button>
-          <button onClick={this.nextQuestionHandlerVERY}>
-            Очень интересна
+          <p>Оцените:</p>
+
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={this.nextQuestionHandlerNOT}
+          >
+            -
+          </button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={this.nextQuestionHandlerMEDIUM}
+          >
+            +-
+          </button>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={this.nextQuestionHandlerVERY}
+          >
+            +
           </button>
         </div>
       );
@@ -110,15 +128,15 @@ class Quiz extends React.Component {
           <table>
             <tbody>
               <tr>
-                <td>Гуманитарные науки</td>
+                <td>Г</td>
                 <td>{this.state._Gum}</td>
               </tr>
               <tr>
-                <td>Технические науки</td>
+                <td>Т</td>
                 <td>{this.state._Tech}</td>
               </tr>
               <tr>
-                <td>Естественные науки</td>
+                <td>Е</td>
                 <td>{this.state._Nat}</td>
               </tr>
             </tbody>
