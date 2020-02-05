@@ -6,7 +6,9 @@ import Quiz from "./components/Quiz";
 function App() {
   return (
     <div className="App">
+      <p>Header</p>
       <Quiz />
+      <p>Footer</p>
     </div>
   );
 }
