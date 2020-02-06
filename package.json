@@ -16,18 +16,22 @@
     "react-star-ratings": "^2.3.0"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
+    "typescript": "3.3.3",
+    "gh-pages": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "https://sergeevsergey99.github.io/quiz"
 }
