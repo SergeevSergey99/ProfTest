@@ -19,6 +19,7 @@
     position: absolute;
     width: 1440px;
     height: 86px;
+    top: 0px;
 }
 
 .card {
@@ -33,6 +34,47 @@
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
+
+.card_results {
+    position: absolute;
+    width: 560px;
+    height: 512px;
+    left: 440px;
+    top: 214px;
+
+    background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+.result_text{
+    /* Результаты профориентационного тестирования */
+    position: relative;
+    left: 20px;
+    top: 23px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+
+    color: #000000;
+
+}
+.results {
+
+    color: #FFFFFF;
+    position: relative;
+    top:50px;
+    left: 25px;
+    border-radius: 8px;
+    height: 40px;
+    border: #EEEEEE;
+
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
 .img {
     position: absolute;
     width: 364px;
@@ -44,7 +86,7 @@
     border-radius: 8px;
 }
 
-.card-text{
+.card-text {
 
     position: absolute;
     width: 340px;
@@ -63,6 +105,7 @@
     color: #000000;
 
 }
+
 .grade {
     position: absolute;
     width: 380px;
@@ -74,8 +117,9 @@
     background: #EEEEEE;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-   }
-.stars{
+}
+
+.stars {
     position: relative;
     font-size: 4.0rem;
     text-align: center;
