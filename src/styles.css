@@ -1,8 +1,119 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
+    font-family: sans-serif;
+    text-align: center;
 }
+
 .Quiz {
-  font-family: sans-serif;
-  text-align: center;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.Desktop-1 {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #FFFFFF;
+}
+
+.header {
+    position: absolute;
+    width: 1440px;
+    height: 86px;
+}
+
+.card {
+    position: absolute;
+    width: 380px;
+    height: 512px;
+    left: 530px;
+    top: 214px;
+
+
+    background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+.img {
+    position: absolute;
+    width: 364px;
+    height: 364px;
+    left: 538px;
+    top: 222px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.card-text{
+
+    position: absolute;
+    width: 340px;
+    height: 92px;
+    left: 550px;
+    top: 606px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+}
+.grade {
+    position: absolute;
+    width: 380px;
+    height: 64px;
+    left: 530px;
+    top: 746px;
+
+
+    background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+   }
+.stars{
+    position: relative;
+    font-size: 4.0rem;
+    text-align: center;
+    top: -16px;
+}
+
+#Rectangle-1 {
+
+    position: absolute;
+    width: 1440px;
+    height: 86px;
+    left: 0px;
+    top: 0px;
+
+    background: #C4C4C4;
+
+}
+
+#Ellipse-1 {
+
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    left: 1310px;
+    top: 22px;
+
+    background: #DDDDDD;
+}
+
+#Ellipse-2 {
+
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    left: 1234px;
+    top: 22px;
+
+    background: #DDDDDD;
 }

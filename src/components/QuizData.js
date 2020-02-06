@@ -1,34 +1,42 @@
 export const QuizData = [
   {
     id: 0,
-    name: "000",
-    image: "image.png",
-    Gum: 1,
+    name: "Часто помогать людям",
+    image: "С - часто помогать людям - 1.png",
+    Hud: 1,
     Tech: 1,
-    Nat: 1
+    Num: 2,
+    Soc: 4,
+    Nat: 2
   },
   {
     id: 1,
-    name: "001",
-    image: "image1.png",
-    Gum: 1,
+    name: "Понимать чувства, намерения людей",
+    image: "С - понимать чувства, намерения людей - 1.png",
+    Hud: 0,
     Tech: 0,
-    Nat: 0
+    Num: 1,
+    Soc: 4,
+    Nat: 3
   },
   {
     id: 2,
-    name: "002",
-    image: "image2.png",
-    Gum: 0,
-    Tech: 1,
+    name: "Заводить многочисленные деловые знакомства",
+    image: "С - заводить многочисленные деловые знакомства - 1.png",
+    Hud: 2,
+    Tech: 0,
+    Num: 1,
+    Soc: 4,
     Nat: 0
   },
   {
     id: 3,
-    name: "003",
-    image: "image3.png",
-    Gum: 0,
+    name: "Интересоваться иностранными языками",
+    image: "Ц - интересоваться иностранными языками - 1.png",
+    Hud: 1,
     Tech: 0,
-    Nat: 1
+    Num: 2,
+    Soc: 1,
+    Nat: 0
   }
 ];
