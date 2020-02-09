@@ -2,6 +2,12 @@ import React from "react";
 import {QuizData} from "./QuizData";
 import StarRatingComponent from 'react-star-rating-component';
 
+/*import styled, { keyframes } from 'styled-components';
+import {fadeIn} from 'react-animations';
+
+
+const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`} `;*/
+
 class Quiz extends React.Component {
     state = {
         currentQuestion: 0,
@@ -10,8 +16,12 @@ class Quiz extends React.Component {
         _Num: 0,
         _Soc: 0,
         _Nat: 0,
-        rating: 0
+        rating: 0,
+        fade: false,
+        fadeRev: false
     };
+
+
     loadQuiz = () => {
         const {currentQuestion} = this.state;
 
@@ -60,11 +70,11 @@ class Quiz extends React.Component {
       };
     */
 
-
     componentDidUpdate(prevProps, prevState) {
         const {currentQuestion} = this.state;
         if (this.state.currentQuestion !== prevState.currentQuestion) {
             if (this.state.currentQuestion <= QuizData.length - 1) {
+
                 this.setState(() => {
                     return {
                         question: QuizData[currentQuestion].name,
@@ -73,11 +83,12 @@ class Quiz extends React.Component {
                         Num: QuizData[currentQuestion].Num,
                         Hud: QuizData[currentQuestion].Hud,
                         Tech: QuizData[currentQuestion].Tech,
-                        Nat: QuizData[currentQuestion].Nat
+                        Nat: QuizData[currentQuestion].Nat,
+
                     };
                 });
 
-                console.log(this.state.currentQuestion);
+//                console.log(this.state.currentQuestion);
                 /* console.log(
                      this.state._Hud + " " + this.state._Tech + " " + this.state._Nat
                  );*/
@@ -87,15 +98,17 @@ class Quiz extends React.Component {
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
+        this.setState({fadeRev: true , image : ''});
 
-        this.setState({
-            _Soc: this.state._Soc + this.state.Soc * (nextValue - 1),
-            _Tech: this.state._Tech + this.state.Tech * (nextValue - 1),
-            _Hud: this.state._Hud + this.state.Hud * (nextValue - 1),
-            _Num: this.state._Num + this.state.Num * (nextValue - 1),
-            _Nat: this.state._Nat + this.state.Nat * (nextValue - 1),
-            currentQuestion: this.state.currentQuestion + 1
-        });
+        /* this.setState({
+             _Soc: this.state._Soc + this.state.Soc * (nextValue - 1),
+             _Tech: this.state._Tech + this.state.Tech * (nextValue - 1),
+             _Hud: this.state._Hud + this.state.Hud * (nextValue - 1),
+             _Num: this.state._Num + this.state.Num * (nextValue - 1),
+             _Nat: this.state._Nat + this.state.Nat * (nextValue - 1),
+             currentQuestion: this.state.currentQuestion + 1,
+
+         });*/
 
     }
 
@@ -103,9 +116,29 @@ class Quiz extends React.Component {
         const {rating} = this.state;
         if (this.state.currentQuestion <= QuizData.length - 1) {
             return (
-                <div>
+                <div
+                    className={this.state.fadeRev ? 'fade reverse' : ''}
+                    onAnimationEnd={() => {
+                        if (this.state.fadeRev) {
+                            this.setState({
 
-                    <div className="card"></div>
+                                _Soc: this.state._Soc + this.state.Soc * (rating - 1),
+                                _Tech: this.state._Tech + this.state.Tech * (rating - 1),
+                                _Hud: this.state._Hud + this.state.Hud * (rating - 1),
+                                _Num: this.state._Num + this.state.Num * (rating - 1),
+                                _Nat: this.state._Nat + this.state.Nat * (rating - 1),
+                                fadeRev: false,
+                               // fade: true,
+                                rating: 0,
+                                currentQuestion: this.state.currentQuestion + 1,
+                            })
+                        }
+                    }
+                    }
+                >
+
+
+                    <div className="card"/>
                     <img className="img"
                          src={this.state.image}
                          alt={this.state.image}
@@ -155,27 +188,33 @@ class Quiz extends React.Component {
         } else
             var sum = this.state._Soc + this.state._Nat + this.state._Tech + this.state._Hud + this.state._Num;
         var max = Math.max(this.state._Soc, this.state._Nat, this.state._Tech, this.state._Hud, this.state._Num);
-
+        if (max === 0)
+        {
+            sum = 1;
+            max = 1;
+        }
         return (
             <div className="card_results">
                 <div className="result_text">Результаты профориентационного тестирования:</div>
-
-                <div className="results" style={{background: '#72D363', width: 300 + 200 * this.state._Num / max}}>
-                    Цифровое направление — {(this.state._Num / sum * 100).toFixed(1)} %
+                <div className="results" style={{background: '#6087D5', width: 300 + 200 * this.state._Tech / max}}>
+                    Техническое направление — {(this.state._Tech / sum * 100).toFixed(1)} %
                 </div>
-                <div className="results" style={{background: '#6087D5', width: 300 + 200 * this.state._Soc / max}}>
-                    Социальное направление — {(this.state._Soc / sum * 100).toFixed(1)} %
+                <p/>
+                <div className="results" style={{background: '#72D363', width: 300 + 200 * this.state._Nat / max}}>
+                    Естественно-научное направление — {(this.state._Nat / sum * 100).toFixed(1)} %
                 </div>
+                <p/>
                 <div className="results" style={{background: '#F1AA3F', width: 300 + 200 * this.state._Hud / max}}>
                     Артистическое направление — {(this.state._Hud / sum * 100).toFixed(1)} %
                 </div>
-                <div className="results" style={{background: '#B962EF', width: 300 + 200 * this.state._Tech / max}}>
-                    Техническое направление — {(this.state._Tech / sum * 100).toFixed(1)} %
+                <p/>
+                <div className="results" style={{background: '#B962EF', width: 300 + 200 * this.state._Num / max}}>
+                    Цифровое направление — {(this.state._Num / sum * 100).toFixed(1)} %
                 </div>
-                <div className="results" style={{background: '#EF88A7', width: 300 + 200 * this.state._Nat / max}}>
-                    Естественно-научное направление — {(this.state._Nat / sum * 100).toFixed(1)} %
+                <p/>
+                <div className="results" style={{background: '#EF88A7', width: 300 + 200 * this.state._Soc / max}}>
+                    Социальное направление — {(this.state._Soc / sum * 100).toFixed(1)} %
                 </div>
-
             </div>
         );
     }
