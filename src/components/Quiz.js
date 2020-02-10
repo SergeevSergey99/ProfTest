@@ -1,6 +1,7 @@
 import React from "react";
 import {QuizData} from "./QuizData";
 import StarRatingComponent from 'react-star-rating-component';
+import Results from "./Results";
 
 /*import styled, { keyframes } from 'styled-components';
 import {fadeIn} from 'react-animations';
@@ -8,17 +9,26 @@ import {fadeIn} from 'react-animations';
 
 const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`} `;*/
 
+export var Superstate = {
+    __Hud: 0,
+    __Tech: 0,
+    __Num: 0,
+    __Soc: 0,
+    __Nat: 0,
+};
+
 class Quiz extends React.Component {
     state = {
         currentQuestion: 0,
-        _Hud: 0,
-        _Tech: 0,
-        _Num: 0,
-        _Soc: 0,
-        _Nat: 0,
+        _Hud: Superstate.__Hud,
+        _Tech: Superstate.__Tech,
+        _Num: Superstate.__Num,
+        _Soc: Superstate.__Soc,
+        _Nat: Superstate.__Nat,
         rating: 0,
         fade: false,
-        fadeRev: false
+        fadeRev: false,
+        isEnd: false
     };
 
 
@@ -98,7 +108,7 @@ class Quiz extends React.Component {
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
-        this.setState({fadeRev: true , image : ''});
+        this.setState({fadeRev: true, image: ''});
 
         /* this.setState({
              _Soc: this.state._Soc + this.state.Soc * (nextValue - 1),
@@ -128,7 +138,7 @@ class Quiz extends React.Component {
                                 _Num: this.state._Num + this.state.Num * (rating - 1),
                                 _Nat: this.state._Nat + this.state.Nat * (rating - 1),
                                 fadeRev: false,
-                               // fade: true,
+                                // fade: true,
                                 rating: 0,
                                 currentQuestion: this.state.currentQuestion + 1,
                             })
@@ -185,38 +195,21 @@ class Quiz extends React.Component {
                             Очень интересно
                         </button>
             * */
-        } else
-            var sum = this.state._Soc + this.state._Nat + this.state._Tech + this.state._Hud + this.state._Num;
-        var max = Math.max(this.state._Soc, this.state._Nat, this.state._Tech, this.state._Hud, this.state._Num);
-        if (max === 0)
-        {
-            sum = 1;
-            max = 1;
+        } else {
+
+
+            Superstate.__Nat += this.state._Nat;
+            Superstate.__Num += this.state._Num;
+            Superstate.__Tech += this.state._Tech;
+            Superstate.__Soc += this.state._Soc;
+            Superstate.__Hud += this.state._Hud;
+            return (<div>
+                        <Results/>
+                </div>
+            );
+
+
         }
-        return (
-            <div className="card_results">
-                <div className="result_text">Результаты профориентационного тестирования:</div>
-                <div className="results" style={{background: '#6087D5', width: 300 + 200 * this.state._Tech / max}}>
-                    Техническое направление — {(this.state._Tech / sum * 100).toFixed(1)} %
-                </div>
-                <p/>
-                <div className="results" style={{background: '#72D363', width: 300 + 200 * this.state._Nat / max}}>
-                    Естественно-научное направление — {(this.state._Nat / sum * 100).toFixed(1)} %
-                </div>
-                <p/>
-                <div className="results" style={{background: '#F1AA3F', width: 300 + 200 * this.state._Hud / max}}>
-                    Артистическое направление — {(this.state._Hud / sum * 100).toFixed(1)} %
-                </div>
-                <p/>
-                <div className="results" style={{background: '#B962EF', width: 300 + 200 * this.state._Num / max}}>
-                    Цифровое направление — {(this.state._Num / sum * 100).toFixed(1)} %
-                </div>
-                <p/>
-                <div className="results" style={{background: '#EF88A7', width: 300 + 200 * this.state._Soc / max}}>
-                    Социальное направление — {(this.state._Soc / sum * 100).toFixed(1)} %
-                </div>
-            </div>
-        );
     }
 }
 
