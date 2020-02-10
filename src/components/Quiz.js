@@ -195,7 +195,7 @@ class Quiz extends React.Component {
                             Очень интересно
                         </button>
             * */
-        } else {
+        }
 
 
             Superstate.__Nat += this.state._Nat;
@@ -209,7 +209,7 @@ class Quiz extends React.Component {
             );
 
 
-        }
+
     }
 }
 
