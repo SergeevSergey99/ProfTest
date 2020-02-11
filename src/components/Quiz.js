@@ -2,6 +2,7 @@ import React from "react";
 import {QuizData} from "./QuizData";
 import StarRatingComponent from 'react-star-rating-component';
 import Results from "./Results";
+import Quiz2 from "./Quiz2";
 
 /*import styled, { keyframes } from 'styled-components';
 import {fadeIn} from 'react-animations';
@@ -89,6 +90,7 @@ class Quiz extends React.Component {
                     return {
                         question: QuizData[currentQuestion].name,
                         image: QuizData[currentQuestion].image,
+
                         Soc: QuizData[currentQuestion].Soc,
                         Num: QuizData[currentQuestion].Num,
                         Hud: QuizData[currentQuestion].Hud,
@@ -204,7 +206,7 @@ class Quiz extends React.Component {
             Superstate.__Soc += this.state._Soc;
             Superstate.__Hud += this.state._Hud;
             return (<div>
-                        <Results/>
+                        <Quiz2/>
                 </div>
             );
 

@@ -11,14 +11,14 @@
 .Desktop-1 {
     position: relative;
     width: 100%;
-    height: 1024px;
+    height: 100%;
     background: #FFFFFF;
 }
 
 .header {
     position: absolute;
     width: 100%;
-    height: 86px;
+    height: 100%;
     top: 0px;
 }
 
@@ -132,7 +132,7 @@
 #Rectangle-1 {
 
     width: 100%;
-    height: 86px;
+    height: 8%;
 
     background: #C4C4C4;
 
@@ -141,11 +141,11 @@
 #Ellipse-1 {
 
     position: absolute;
-    width: 42px;
-    height: 42px;
-    border-radius: 21px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
     left: 90%;
-    top: 22px;
+    top: 1rem;
 
     background: #DDDDDD;
 }
@@ -153,16 +153,16 @@
 #Ellipse-2 {
 
     position: absolute;
-    width: 42px;
-    height: 42px;
-    border-radius: 21px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
     left: 85%;
-    top: 22px;
+    top: 1rem;
 
     background: #DDDDDD;
 }
 .fade {
-    animation: fade-in-keyframes 0.6s;
+    animation: fade-in-keyframes 1s;
 }
 @keyframes fade-in-keyframes {
     from {opacity: 0}
@@ -182,8 +182,60 @@
 }
 body{
     margin: 0;
-    background: #DDDDEE;
+    background: #DDDDE0;
 }
 #root{
     height: 0;
+}
+.card_options{
+    /* Rectangle 44 */
+
+
+    position: absolute;
+    width: 364px;
+    height: 330px;
+    left: 538px;
+    top: 288px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+.card_option{
+    /* Киберспорт */
+    position: relative;
+    width: 340px;
+    height: 56px;
+    left: 12px;
+    top: 40px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+.card-text2{
+    /* Выбери увлечение, которое нравится больше всего */
+
+
+    position: absolute;
+    width: 340px;
+    height: 126px;
+    left: 550px;
+    top: 134px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
 }

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Quiz from "./components/Quiz";
+import Quiz2 from "./components/Quiz2";
 import Header from "./components/header";
 import "./styles.css";
 import Particles from 'react-particles-js';
@@ -35,7 +36,7 @@ function App() {
     return (
         <div>
 
-            <Particles  params={particleOpt} style={{color: "#000000"}} />
+            <Particles  params={particleOpt}/>
             <Header/>
             <Quiz/>
         </div>

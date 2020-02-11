@@ -1,15 +1,15 @@
 import React from "react";
-import {Superstate} from "./Quiz";
+import {Superstate2} from "./Quiz2";
 
 
 class Results extends React.Component {
     state = {
         currentQuestion: 0,
-        _Hud: Superstate.__Hud,
-        _Tech: Superstate.__Tech,
-        _Num: Superstate.__Num,
-        _Soc: Superstate.__Soc,
-        _Nat: Superstate.__Nat,
+        _Hud: Superstate2.__Hud,
+        _Tech: Superstate2.__Tech,
+        _Num: Superstate2.__Num,
+        _Soc: Superstate2.__Soc,
+        _Nat: Superstate2.__Nat,
         rating: 0,
         fade: false,
         fadeRev: false
