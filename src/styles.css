@@ -208,6 +208,7 @@ body{
     left: 12px;
     top: 40px;
 
+    cursor: pointer;
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: normal;

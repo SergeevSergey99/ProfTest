@@ -2,9 +2,6 @@ import React from "react";
 import {Quiz2Data} from "./Quiz2Data";
 import Results from "./Results";
 import {Superstate} from "./Quiz";
-import {QuizData} from "./QuizData";
-import StarRatingComponent from "react-star-rating-component";
-import index from "styled-components/dist/styled-components-macro.esm";
 
 export var Superstate2 = {
     __Hud: 0,
@@ -74,14 +71,13 @@ class Quiz2 extends React.Component {
     }
 
     nextQuestionHandler = (my_index) => {
-        console.log(my_index);
         if (!this.state.fadeRev)
             this.setState({
-                _Nat: this.state._Nat + this.state.Nat[my_index],
-                _Num: this.state._Num + this.state.Num[my_index],
-                _Tech: this.state._Tech + this.state.Tech[my_index],
-                _Soc: this.state._Soc + this.state.Soc[my_index],
-                _Hud: this.state._Hud + this.state.Hud[my_index],
+                _Nat: this.state._Nat + this.state.Nat[my_index]*2,
+                _Num: this.state._Num + this.state.Num[my_index]*2,
+                _Tech: this.state._Tech + this.state.Tech[my_index]*2,
+                _Soc: this.state._Soc + this.state.Soc[my_index]*2,
+                _Hud: this.state._Hud + this.state.Hud[my_index]*2,
                 fadeRev: true
             });
     };
@@ -109,11 +105,11 @@ class Quiz2 extends React.Component {
                         <p>Выбери увлечение, которое нравится больше всего</p>
                     </div>
                     <div className="card_options">
-                        <button className="card_option" onClick={() => this.nextQuestionHandler(0)}>{this.state.question[0]}</button>
+                        <div className="card_option" onClick={() => this.nextQuestionHandler(0)}>{this.state.question[0]}</div>
                         <p/>
-                        <button className="card_option" onClick={() => this.nextQuestionHandler(1)}>{this.state.question[1]}</button>
+                        <div className="card_option" onClick={() => this.nextQuestionHandler(1)}>{this.state.question[1]}</div>
                         <p/>
-                        <button className="card_option" onClick={() => this.nextQuestionHandler(2)}>{this.state.question[2]}</button>
+                        <div className="card_option" onClick={() => this.nextQuestionHandler(2)}>{this.state.question[2]}</div>
                     </div>
 
                 </div>

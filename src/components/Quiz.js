@@ -1,7 +1,6 @@
 import React from "react";
 import {QuizData} from "./QuizData";
 import StarRatingComponent from 'react-star-rating-component';
-import Results from "./Results";
 import Quiz2 from "./Quiz2";
 
 /*import styled, { keyframes } from 'styled-components';

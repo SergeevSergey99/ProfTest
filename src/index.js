@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Quiz from "./components/Quiz";
-import Quiz2 from "./components/Quiz2";
 import Header from "./components/header";
 import "./styles.css";
 import Particles from 'react-particles-js';
