@@ -13,6 +13,7 @@ export var Superstate2 = {
 
 class Quiz2 extends React.Component {
     state = {
+        info: true,
         currentQuestion: 0,
         _Hud: Superstate.__Hud,
         _Tech: Superstate.__Tech,
@@ -83,6 +84,34 @@ class Quiz2 extends React.Component {
     };
 
     render() {
+        if (this.state.info) {
+            return (
+                <div className={this.state.fadeRev ? 'fade reverse' : ''}
+                     onAnimationEnd={() => {
+                         if (this.state.fadeRev) {
+                             this.setState({fadeRev: false, info: false})
+                         }
+                     }}
+                >
+                    <div className="card_results">
+                        <div className="result_text">
+                            <p><h2>Задание</h2></p>
+                            <p><h4>Далее будут представлены списки кружков</h4></p>
+                            <p>Выберите наиболее интересный из представленных</p>
+                        </div>
+                        <div className="button_next" onClick={() => {
+                            if (!this.state.fadeRev)
+                                this.setState({fadeRev: true})
+                        }
+                        }>
+                            Понятно
+                        </div>
+                    </div>
+
+                </div>
+            )
+        }
+
         if (this.state.currentQuestion <= 27) {
             return (
                 <div className={this.state.fadeRev ? 'fade reverse' : ''}
