@@ -19,6 +19,7 @@ export var Superstate = {
 
 class Quiz extends React.Component {
     state = {
+        info: true,
         currentQuestion: 0,
         _Hud: Superstate.__Hud,
         _Tech: Superstate.__Tech,
@@ -124,6 +125,34 @@ class Quiz extends React.Component {
     }
 
     render() {
+
+        if (this.state.info) {
+            return (
+                <div className={this.state.fadeRev ? 'fade reverse' : ''}
+                     onAnimationEnd={() => {
+                         if (this.state.fadeRev) {
+                             this.setState({fadeRev: false, info: false})
+                         }
+                     }}
+                >
+                    <div className="card_results">
+                        <div className="result_text">
+                        <p><h2>Задание</h2></p>
+                        <p><h4>Далее будут представлены виды занятий</h4></p>
+                        <p>Оцените насколько они вам интересны по 5-ти балльной шкале</p>
+                        </div>
+                        <div className="button_next" onClick={() => {
+                            if (!this.state.fadeRev)
+                                this.setState({fadeRev: true})
+                        }
+                        }>
+                            Понятно
+                        </div>
+                    </div>
+
+                </div>
+            )
+        }
         const {rating} = this.state;
         if (this.state.currentQuestion <= QuizData.length - 1) {
             return (
@@ -199,16 +228,15 @@ class Quiz extends React.Component {
         }
 
 
-            Superstate.__Nat += this.state._Nat;
-            Superstate.__Num += this.state._Num;
-            Superstate.__Tech += this.state._Tech;
-            Superstate.__Soc += this.state._Soc;
-            Superstate.__Hud += this.state._Hud;
-            return (<div>
-                        <Quiz2/>
-                </div>
-            );
-
+        Superstate.__Nat += this.state._Nat;
+        Superstate.__Num += this.state._Num;
+        Superstate.__Tech += this.state._Tech;
+        Superstate.__Soc += this.state._Soc;
+        Superstate.__Hud += this.state._Hud;
+        return (<div>
+                <Quiz2/>
+            </div>
+        );
 
 
     }

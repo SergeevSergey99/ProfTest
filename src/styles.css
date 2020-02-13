@@ -50,6 +50,7 @@
 .result_text {
     /* Результаты профориентационного тестирования */
     position: relative;
+    width: 520px;
     left: 20px;
     top: 23px;
 
@@ -239,4 +240,27 @@ body{
 
     color: #000000;
 
+}
+.button_next{
+    /* Rectangle 4 */
+    position: relative;
+    width: 560px;
+    height: 64px;
+    top: 300px;
+
+    cursor: pointer;
+    background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
 }
