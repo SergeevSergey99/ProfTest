@@ -264,3 +264,82 @@ body{
 
     color: #000000;
 }
+.registr_title{
+    /* Регистрация */
+
+
+    position: absolute;
+    width: 340px;
+    height: 126px;
+    left: 550px;
+    top: 234px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+.registr_text{
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+    position: absolute;
+    width: 340px;
+    height: 103px;
+    left: 550px;
+    top: 398px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+.registr_button {
+    /* Rectangle 4 */
+
+
+    position: absolute;
+    width: 380px;
+    height: 64px;
+    left: 530px;
+    top: 810px;
+
+    background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.registr_field1{
+    /* Rectangle 44 */
+
+
+    position: absolute;
+    width: 364px;
+    height: 73px;
+    left: 538px;
+    top: 548px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+.registr_field2 {
+    /* Rectangle 44 */
+
+
+    position: absolute;
+    width: 364px;
+    height: 73px;
+    left: 538px;
+    top: 637px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
