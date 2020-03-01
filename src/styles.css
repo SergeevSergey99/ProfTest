@@ -34,7 +34,6 @@
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
-
 .card_results {
     position: absolute;
     width: 560px;
@@ -46,7 +45,6 @@
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
-
 .result_text {
     /* Результаты профориентационного тестирования */
     position: relative;
@@ -63,7 +61,6 @@
     color: #000000;
 
 }
-
 .results {
 
     color: #FFFFFF;
@@ -77,7 +74,6 @@
     padding-top: 20px;
     padding-left: 10px;
 }
-
 .img {
     position: absolute;
     width: 364px;
@@ -88,7 +84,6 @@
     background: #FFFFFF;
     border-radius: 8px;
 }
-
 .card-text {
 
     position: absolute;
@@ -108,7 +103,6 @@
     color: #000000;
 
 }
-
 .grade {
     position: absolute;
     width: 380px;
@@ -121,7 +115,6 @@
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
-
 .stars {
     position: relative;
     font-size: 4.0rem;
@@ -129,7 +122,6 @@
     top: -16px;
 
 }
-
 #Rectangle-1 {
 
     width: 100%;
@@ -138,7 +130,6 @@
     background: #C4C4C4;
 
 }
-
 #Ellipse-1 {
 
     position: absolute;
@@ -150,7 +141,6 @@
 
     background: #DDDDDD;
 }
-
 #Ellipse-2 {
 
     position: absolute;
@@ -172,8 +162,7 @@
 .reverse {
     animation-direction: reverse;
 }
-.normal
-{
+.normal{
     animation-direction: normal;
 }
 .particles{
@@ -243,10 +232,10 @@ body{
 }
 .button_next{
     /* Rectangle 4 */
-    position: relative;
+    position: absolute;
     width: 560px;
     height: 64px;
-    top: 250px;
+    top: 530px;
 
     cursor: pointer;
     background: #EEEEEE;
@@ -258,17 +247,13 @@ body{
     font-weight: bold;
     font-size: 26px;
     line-height: 31px;
-    display: flex;
-    align-items: center;
     text-align: center;
 
     color: #000000;
 }
 .registr_title{
     /* Регистрация */
-
-
-    position: absolute;
+   position: absolute;
     width: 340px;
     height: 126px;
     left: 30px;
@@ -304,8 +289,6 @@ body{
 }
 .card-start_text{
      /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
-
-
      position: relative;
      width: 340px;
      height: 103px;
@@ -321,16 +304,24 @@ body{
 
      color: #000000;
  }
+.inner{
+position: relative;
+    top: 33%;
+}
 .registr_button {
     /* Rectangle 4 */
-
-
     position: absolute;
     width: 380px;
     height: 64px;
     left: 0px;
     top: 450px;
 
+    cursor: pointer;
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: bold;
+
+    text-align: center;
     background: #EEEEEE;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
@@ -339,11 +330,12 @@ body{
     /* Rectangle 44 */
 
 
-    position: absolute;
-    width: 364px;
+    position: relative;
+    width: 80%;
     height: 73px;
-    left: 10px;
-    top: 248px;
+    left: 10%;
+    top: 244px;
+    text-align: center;
 
     background: #FFFFFF;
     border-radius: 8px;
@@ -352,11 +344,12 @@ body{
     /* Rectangle 44 */
 
 
-    position: absolute;
-    width: 364px;
+    position: relative;
+    width: 80%;
     height: 73px;
-    left: 10px;
-    top: 337px;
+    left: 10%;
+    top: 263px;
+    text-align: center;
 
     background: #FFFFFF;
     border-radius: 8px;

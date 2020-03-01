@@ -71,7 +71,7 @@ class Results extends React.Component {
 
                 <div className="button_next" onClick={() => {
                     document.location.href = "#/";
-                }}>На главную</div>
+                }}><div className="inner">На главную</div></div>
             </div>
         );
     }

@@ -104,7 +104,8 @@ class Quiz2 extends React.Component {
                                 this.setState({fadeRev: true})
                         }
                         }>
-                            Понятно
+                            <div className="inner">
+                                Понятно</div>
                         </div>
                     </div>
 
