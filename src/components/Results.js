@@ -10,18 +10,40 @@ class Results extends React.Component {
         _Num: Superstate2.__Num,
         _Soc: Superstate2.__Soc,
         _Nat: Superstate2.__Nat,
-        rating: 0,
+        stop: false,
         fade: false,
         fadeRev: false
     };
 
     render() {
+
+
+        if (localStorage.length >= 5 && !this.state.stop)
+        {
+            this.setState({
+                _Hud: parseInt(localStorage.getItem('Hud')),
+                _Tech: parseInt(localStorage.getItem('Tech')),
+                _Num: parseInt(localStorage.getItem('Num')),
+                _Nat: parseInt(localStorage.getItem('Nat')),
+                _Soc: parseInt(localStorage.getItem('Soc')),
+                stop: true
+            })
+        }
         var sum = this.state._Soc + this.state._Nat + this.state._Tech + this.state._Hud + this.state._Num;
         var max = Math.max(this.state._Soc, this.state._Nat, this.state._Tech, this.state._Hud, this.state._Num);
+
         if (max === 0) {
-            sum = 1;
+
             max = 1;
         }
+        else{
+            localStorage.setItem('Hud', this.state._Hud.toString());
+            localStorage.setItem('Nat', this.state._Nat.toString());
+            localStorage.setItem('Num', this.state._Num.toString());
+            localStorage.setItem('Soc', this.state._Soc.toString());
+            localStorage.setItem('Tech', this.state._Tech.toString());
+        }
+
         return (
             <div className="card_results">
                 <div className="result_text">Результаты профориентационного тестирования:</div>
@@ -45,7 +67,9 @@ class Results extends React.Component {
                     Социальное направление — {(this.state._Soc / sum * 100).toFixed(1)} %
                 </div>
 
-                <div className="button_next" onClick={() => {document.location.href = "../";}}>На главную</div>
+                <div className="button_next" onClick={() => {
+                    document.location.href = "#/";
+                }}>На главную</div>
             </div>
         );
     }
