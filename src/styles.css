@@ -271,8 +271,8 @@ body{
     position: absolute;
     width: 340px;
     height: 126px;
-    left: 550px;
-    top: 234px;
+    left: 30px;
+    top: 0px;
 
     font-family: Rubik;
     font-style: normal;
@@ -291,8 +291,8 @@ body{
     position: absolute;
     width: 340px;
     height: 103px;
-    left: 550px;
-    top: 398px;
+    left: 30px;
+    top: 108px;
 
     font-family: Rubik;
     font-style: normal;
@@ -302,6 +302,25 @@ body{
 
     color: #000000;
 }
+.card-start_text{
+     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+     position: relative;
+     width: 340px;
+     height: 103px;
+     left: 30px;
+     top: 50px;
+
+    cursor: pointer;
+     font-family: Rubik;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 16px;
+     line-height: 19px;
+
+     color: #000000;
+ }
 .registr_button {
     /* Rectangle 4 */
 
@@ -309,13 +328,12 @@ body{
     position: absolute;
     width: 380px;
     height: 64px;
-    left: 530px;
-    top: 810px;
+    left: 0px;
+    top: 450px;
 
     background: #EEEEEE;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    transform: matrix(1, 0, 0, -1, 0, 0);
 }
 .registr_field1{
     /* Rectangle 44 */
@@ -324,8 +342,8 @@ body{
     position: absolute;
     width: 364px;
     height: 73px;
-    left: 538px;
-    top: 548px;
+    left: 10px;
+    top: 248px;
 
     background: #FFFFFF;
     border-radius: 8px;
@@ -337,8 +355,8 @@ body{
     position: absolute;
     width: 364px;
     height: 73px;
-    left: 538px;
-    top: 637px;
+    left: 10px;
+    top: 337px;
 
     background: #FFFFFF;
     border-radius: 8px;

@@ -44,6 +44,8 @@ class Results extends React.Component {
                 <div className="results" style={{background: '#EF88A7', width: 300 + 200 * this.state._Soc / max}}>
                     Социальное направление — {(this.state._Soc / sum * 100).toFixed(1)} %
                 </div>
+
+                <div className="button_next" onClick={() => {document.location.href = "../";}}>На главную</div>
             </div>
         );
     }

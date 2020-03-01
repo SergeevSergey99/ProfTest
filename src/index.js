@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Quiz from "./components/Quiz";
-import Header from "./components/header";
 import "./styles.css";
 import Particles from 'react-particles-js';
+import Header from './components/header';
+import Main from './components/Main';
+import { HashRouter } from 'react-router-dom';
+
+
 
 const particleOpt = {
-    particles:{
-        number:{
+    particles: {
+        number: {
             value: 250,
             density: {
                 enable: true,
@@ -33,12 +36,13 @@ const particleOpt = {
 function App() {
 
     return (
-        <div>
+        <HashRouter>
 
-            <Particles  params={particleOpt}/>
+            <Particles params={particleOpt}/>
             <Header/>
-            <Quiz/>
-        </div>
+            <Main/>
+
+        </HashRouter>
     );
 }
 

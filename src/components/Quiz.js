@@ -3,12 +3,6 @@ import {QuizData} from "./QuizData";
 import StarRatingComponent from 'react-star-rating-component';
 import Quiz2 from "./Quiz2";
 
-/*import styled, { keyframes } from 'styled-components';
-import {fadeIn} from 'react-animations';
-
-
-const FadeIn = styled.div`animation: 2s ${keyframes`${fadeIn}`} `;*/
-
 export var Superstate = {
     __Hud: 0,
     __Tech: 0,
@@ -54,32 +48,6 @@ class Quiz extends React.Component {
         this.loadQuiz();
     }
 
-    /*
-        nextQuestionHandlerVERY = () => {
-            this.setState({
-                _Gum: this.state._Gum + this.state.Gum,
-                _Tech: this.state._Tech + this.state.Tech,
-                _Nat: this.state._Nat + this.state.Nat,
-                currentQuestion: this.state.currentQuestion + 1
-            });
-        };
-        nextQuestionHandlerMEDIUM = () => {
-            this.setState({
-                _Gum: this.state._Gum + this.state.Gum / 2,
-                _Tech: this.state._Tech + this.state.Tech / 2,
-                _Nat: this.state._Nat + this.state.Nat / 2,
-                currentQuestion: this.state.currentQuestion + 1
-            });
-        };
-        nextQuestionHandlerNOT = () => {
-        this.setState({
-          _Gum: this.state._Gum,
-          _Tech: this.state._Tech,
-          _Nat: this.state._Nat,
-          currentQuestion: this.state.currentQuestion + 1
-        });
-      };
-    */
 
     componentDidUpdate(prevProps, prevState) {
         const {currentQuestion} = this.state;
@@ -99,11 +67,6 @@ class Quiz extends React.Component {
 
                     };
                 });
-
-//                console.log(this.state.currentQuestion);
-                /* console.log(
-                     this.state._Hud + " " + this.state._Tech + " " + this.state._Nat
-                 );*/
             }
         }
     }
@@ -111,17 +74,6 @@ class Quiz extends React.Component {
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
         this.setState({fadeRev: true, image: ''});
-
-        /* this.setState({
-             _Soc: this.state._Soc + this.state.Soc * (nextValue - 1),
-             _Tech: this.state._Tech + this.state.Tech * (nextValue - 1),
-             _Hud: this.state._Hud + this.state.Hud * (nextValue - 1),
-             _Num: this.state._Num + this.state.Num * (nextValue - 1),
-             _Nat: this.state._Nat + this.state.Nat * (nextValue - 1),
-             currentQuestion: this.state.currentQuestion + 1,
-
-         });*/
-
     }
 
     render() {
@@ -200,31 +152,6 @@ class Quiz extends React.Component {
                 </div>
 
             );
-
-            /*
-
-                    <span style={{align: 'center'}}>
-                            {" "}
-                        {this.state.currentQuestion} из {QuizData.length}
-                        </span>
-
-
-            <button
-                            onClick={this.nextQuestionHandlerNOT}
-                        >
-                            Не интересно
-                        </button>
-                        <button
-                            onClick={this.nextQuestionHandlerMEDIUM}
-                        >
-                            Интересно
-                        </button>
-                        <button
-                            onClick={this.nextQuestionHandlerVERY}
-                        >
-                            Очень интересно
-                        </button>
-            * */
         }
 
 

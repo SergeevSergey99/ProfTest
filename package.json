@@ -19,8 +19,9 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "typescript": "3.3.3",
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.1.1",
+    "react-router-dom": "^5.1.2",
+    "typescript": "3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +37,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://sergeevsergey99.github.io/quiz"
+  "homepage": "https://sergeevsergey99.github.io/ProfTest"
 }
