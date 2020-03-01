@@ -29,11 +29,13 @@ class Results extends React.Component {
                 stop: true
             })
         }
+
         var sum = this.state._Soc + this.state._Nat + this.state._Tech + this.state._Hud + this.state._Num;
         var max = Math.max(this.state._Soc, this.state._Nat, this.state._Tech, this.state._Hud, this.state._Num);
 
         if (max === 0) {
 
+            sum = 1;
             max = 1;
         }
         else{
