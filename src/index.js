@@ -7,8 +7,6 @@ import Header from './components/header';
 import Main from './components/Main';
 import { HashRouter } from 'react-router-dom';
 
-
-
 const particleOpt = {
     particles: {
         number: {
