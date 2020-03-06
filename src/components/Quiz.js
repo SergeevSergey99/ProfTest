@@ -78,6 +78,8 @@ class Quiz extends React.Component {
 
     render() {
 
+        if(localStorage < 7)
+            document.location.href = "#/";
         if (this.state.info) {
             return (
                 <div className={this.state.fadeRev ? 'fade reverse' : ''}

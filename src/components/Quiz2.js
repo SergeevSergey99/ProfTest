@@ -1,6 +1,7 @@
 import React from "react";
 import {Quiz2Data} from "./Quiz2Data";
 import Results from "./Results";
+import Spreadsheet from '../spreadsheet';
 import {Superstate} from "./Quiz";
 
 export var Superstate2 = {
@@ -10,7 +11,7 @@ export var Superstate2 = {
     __Soc: 0,
     __Nat: 0,
 };
-
+let sp = new Spreadsheet();
 class Quiz2 extends React.Component {
     state = {
         info: true,
@@ -153,6 +154,16 @@ class Quiz2 extends React.Component {
         Superstate2.__Tech += this.state._Tech;
         Superstate2.__Soc += this.state._Soc;
         Superstate2.__Hud += this.state._Hud;
+
+        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech,Superstate2.__Num,Superstate2.__Soc);
+
+        localStorage.setItem('Hud', Superstate2.__Hud.toString());
+        localStorage.setItem('Nat', Superstate2.__Nat.toString());
+        localStorage.setItem('Num', Superstate2.__Num.toString());
+        localStorage.setItem('Soc', Superstate2.__Soc.toString());
+        localStorage.setItem('Tech', Superstate2.__Tech.toString());
+
+
         return (<div>
                 <Results/>
             </div>

@@ -17,6 +17,8 @@ class Results extends React.Component {
 
     render() {
 
+        if(localStorage < 7)
+            document.location.href = "#/";
 
         if (localStorage.length >= 5 && !this.state.stop)
         {
