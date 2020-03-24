@@ -29,23 +29,27 @@ class Spreadsheet {
 
 //        console.log(rows[0]['Телефон']);
         //      console.log(rows[1]['Телефон']);
-  /*      rows.forEach(row => {
-            printStudent(row)
-        })
-*/
+        /*      rows.forEach(row => {
+                  printStudent(row)
+              })
+      */
 
         return rows;
     }
+
     student = {
-        'Телефон':'',
-        'Школа':'',
-        'Х':'',
-        'С':'',
-        'Е':'',
-        'Т':'',
-        'Ц':''
+        'Телефон': '',
+        'Школа': '',
+        'Х': '',
+        'С': '',
+        'Е': '',
+        'Т': '',
+        'Ц': ''
     };
+    events = [];
     done = false;
+    checked = false;
+
     async AddRowToSheet(phone, school) {
 
         const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
@@ -85,6 +89,63 @@ class Spreadsheet {
         this.student = larryRow;
         this.done = true;
         return larryRow;
+
+    }
+
+    async GetEvent(e, h, t, c, s) {
+
+        const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
+        await doc.useServiceAccountAuth(creds);
+        await doc.loadInfo();
+
+        const sheet = doc.sheetsByIndex[1]; // or use doc.sheetsById[id]
+
+//    console.log(sheet.title);
+        const rows = await sheet.getRows();
+
+        let arr = [
+            {"name": "Е", "value": e},
+            {"name": "Х", "value": h},
+            {"name": "Т", "value": t},
+            {"name": "Ц", "value": c},
+            {"name": "С", "value": s}
+        ];
+        arr.sort(function (a, b) {
+            return a["value"] - b["value"];
+        });
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+
+        console.log(arr[3]["name"]);
+        console.log(arr[4]["name"]);
+        rows.forEach(row => {
+            console.log(row);
+            if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
+                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
+            {
+                console.log(row["Дата"]);
+                console.log(row["Месяц"]);
+                console.log(row["Год"]);
+                console.log(dd);
+                console.log(mm);
+                console.log(yyyy);
+                //01.03.2020
+                if (parseInt(row["Год"]) >  parseInt(yyyy) ||
+                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] > parseInt(mm)) ||
+                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] === parseInt(mm) && row["Дата"] >= parseInt(dd))) {
+
+                            this.events.push(row);
+                            console.log(row);
+
+
+                }
+            }
+        });
+        this.checked = true;
 
     }
 

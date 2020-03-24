@@ -45,8 +45,6 @@ class Registration extends React.Component {
         if (!this.state.check)
             return (
                 <div>
-
-
                     <div className="card">
                         <div className="registr_title">Регистрация</div>
                         <div className="registr_text">Расписание событий по профориентации для школьников
