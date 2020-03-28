@@ -41,8 +41,7 @@ class Events extends React.Component {
             }, 500);
         }
 
-        if (this.state.done === true)
-        {
+        if (this.state.done === true) {
             let months = [
                 "января",
                 "февраля",
@@ -58,32 +57,32 @@ class Events extends React.Component {
                 "декабря"
             ];
 
-            if(this.state.sp.events.length > 0)
-            return (
-                <div>
-                    <div className="card">
-                        <div className="result_text">События</div>
-                        <div className="card-start_text">
-                            <p>Название: {this.state.sp.events[this.state.currentEvent]["Название"]}</p>
-                            <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"]]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
-                            <p>Место: {this.state.sp.events[this.state.currentEvent]["Место"]}</p>
-                            <p>Время: {this.state.sp.events[this.state.currentEvent]["Время"]}</p>
-                        </div>
-                        <div className="registr_button_exit" onClick={() => {
-                            this.setState({currentEvent: (this.state.currentEvent + 1)%this.state.sp.events.length});
+            if (this.state.sp.events.length > 0)
+                return (
+                    <div>
+                        <div className="card">
+                            <div className="result_text">События</div>
+                            <div className="card-start_text">
+                                <p>Название: {this.state.sp.events[this.state.currentEvent]["Название"]}</p>
+                                <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"]]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
+                                <p>Место: {this.state.sp.events[this.state.currentEvent]["Место"]}</p>
+                                <p>Время: {this.state.sp.events[this.state.currentEvent]["Время"]}</p>
+                            </div>
+                            <div className="registr_button_exit" onClick={() => {
+                                this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
 
-                        }}>
-                            <div className="inner">Следующее</div>
-                        </div>
-                        <div className="registr_button" onClick={() => {
-                            document.location.href = "#/";
-                        }}>
-                            <div className="inner">На главную</div>
-                        </div>
+                            }}>
+                                <div className="inner">Следующее</div>
+                            </div>
+                            <div className="registr_button" onClick={() => {
+                                document.location.href = "#/";
+                            }}>
+                                <div className="inner">На главную</div>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-            );
+                );
             else
                 return (
                     <div>
@@ -93,7 +92,7 @@ class Events extends React.Component {
                                 <p>Для вас не найдено событий</p>
                             </div>
                             <div className="registr_button_exit" onClick={() => {
-                                this.setState({currentEvent: (this.state.currentEvent + 1)%this.state.sp.events.length});
+                                this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
 
                             }}>
                                 <div className="inner">Следующее</div>
@@ -107,7 +106,7 @@ class Events extends React.Component {
                         </div>
                     </div>
 
-            );
+                );
         }
         if (this.state.done === true && this.state.sp.checked)
             return (
@@ -133,12 +132,13 @@ class Events extends React.Component {
                     <div className="result_text">События</div>
                     <div className="card-start_text"> {setTimeout(() => {
                         if (this.state.time < 20)
-                        this.setState({done: true, time: this.state.time + 1})
+                            this.setState({done: true, time: this.state.time + 1})
                         else
-                        this.setState({check: false, done: false, time: 0,sp:new Spreadsheet()})
+                            this.setState({check: false, done: false, time: 0, sp: new Spreadsheet()})
                     }, 1000)
 
-                        }/100</div>
+                    }/100
+                    </div>
                     <div className="button_next" onClick={() => {
                         document.location.href = "#/";
                     }}>
