@@ -83,7 +83,7 @@ class Events extends React.Component {
                         </div>
                     </div>
                 );
-            else
+          /*else
                 return (
                     <div>
                         <div className="card">
@@ -107,7 +107,7 @@ class Events extends React.Component {
                     </div>
 
                 );
-        }
+        }*/
         if (this.state.done === true && this.state.sp.checked)
             return (
                 <div>
