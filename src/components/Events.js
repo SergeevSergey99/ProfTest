@@ -106,8 +106,8 @@ class Events extends React.Component {
                         </div>
                     </div>
 
-                );
-        }*/
+                );*/
+        }
         if (this.state.done === true && this.state.sp.checked)
             return (
                 <div>
