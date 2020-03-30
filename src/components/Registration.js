@@ -15,8 +15,8 @@ class Registration extends React.Component {
 
         this.setState(() => {
             return {
-               // sp: new Spreadsheet(),
-               // check: false,
+                // sp: new Spreadsheet(),
+                // check: false,
 
             };
         });
@@ -28,8 +28,7 @@ class Registration extends React.Component {
 
     render() {
 
-        if(localStorage.length >= 7 && !this.state.stop)
-        {
+        if (localStorage.length >= 7 && !this.state.stop) {
             let _student = new Spreadsheet();
             _student.done = true;
             _student.student['Телефон'] = parseInt(localStorage.getItem('Phone'));
@@ -39,7 +38,7 @@ class Registration extends React.Component {
             _student.student['Ц'] = parseInt(localStorage.getItem('Num'));
             _student.student['Е'] = parseInt(localStorage.getItem('Nat'));
             _student.student['С'] = parseInt(localStorage.getItem('Soc'));
-            this.setState({stop:true, check:true, done: true, sp: _student});
+            this.setState({stop: true, check: true, done: true, sp: _student});
         }
 
         if (!this.state.check)
@@ -73,28 +72,24 @@ class Registration extends React.Component {
                 </div>
             );
         else {
-            if (!this.state.sp.done)
+            if (!this.state.sp.done) {
+
+                setTimeout(() => {
+                    if (this.state.time < 20)
+                        this.setState({done: true, time: this.state.time + 1});
+                    else
+                        this.setState({check: false, done: false, time: 0, sp: new Spreadsheet()})
+                }, 1000);
+
                 return (
                     <div>
-
-
                         <div className="card">
                             <div className="registr_title">Идет проверка</div>
-                            <div className="registr_text">Идет подключение {
-                                setTimeout(() => {
-                                    if (this.state.time < 20)
-                                        this.setState({done: true, time: this.state.time + 1})
-                                    else
-                                        this.setState({check: false, done: false, time: 0,sp:new Spreadsheet()})
-                                }, 1000)
-
-                            }/100
-                            </div>
-
+                            <div className="registr_text">Идет подключение...</div>
                         </div>
                     </div>
                 );
-            else {
+            } else {
 
                 localStorage.setItem('Phone', this.state.sp.student['Телефон'].toString());
                 localStorage.setItem('School', this.state.sp.student['Школа'].toString());
@@ -119,10 +114,14 @@ class Registration extends React.Component {
                             <div className="registr_button_exit" onClick={() => {
                                 localStorage.clear();
                                 document.location.href = "#/";
-                            }}><div className="inner">Выйти</div></div>
+                            }}>
+                                <div className="inner">Выйти</div>
+                            </div>
                             <div className="registr_button" onClick={() => {
                                 document.location.href = "#/";
-                            }}><div className="inner">На главную</div></div>
+                            }}>
+                                <div className="inner">На главную</div>
+                            </div>
 
                         </div>
                     </div>

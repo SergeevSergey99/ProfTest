@@ -83,30 +83,30 @@ class Events extends React.Component {
                         </div>
                     </div>
                 );
-          /*else
-                return (
-                    <div>
-                        <div className="card">
-                            <div className="result_text">События</div>
-                            <div className="card-start_text">
-                                <p>Для вас не найдено событий</p>
-                            </div>
-                            <div className="registr_button_exit" onClick={() => {
-                                this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
+            /*else
+                  return (
+                      <div>
+                          <div className="card">
+                              <div className="result_text">События</div>
+                              <div className="card-start_text">
+                                  <p>Для вас не найдено событий</p>
+                              </div>
+                              <div className="registr_button_exit" onClick={() => {
+                                  this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
 
-                            }}>
-                                <div className="inner">Следующее</div>
-                            </div>
-                            <div className="registr_button" onClick={() => {
-                                document.location.href = "#/";
-                            }}>
-                                <div className="inner">На главную</div>
-                            </div>
+                              }}>
+                                  <div className="inner">Следующее</div>
+                              </div>
+                              <div className="registr_button" onClick={() => {
+                                  document.location.href = "#/";
+                              }}>
+                                  <div className="inner">На главную</div>
+                              </div>
 
-                        </div>
-                    </div>
+                          </div>
+                      </div>
 
-                );*/
+                  );*/
         }
         if (this.state.done === true && this.state.sp.checked)
             return (
@@ -123,28 +123,22 @@ class Events extends React.Component {
                     </div>
                 </div>
             );
+        setTimeout(() => {
+            if (this.state.time < 20)
+                this.setState({done: true, time: this.state.time + 1});
+            else
+                this.setState({check: false, done: false, time: 0, sp: new Spreadsheet()});
+        }, 1000);
         return (
-
             <div>
-
-
                 <div className="card_results">
                     <div className="result_text">События</div>
-                    <div className="card-start_text"> {setTimeout(() => {
-                        if (this.state.time < 20)
-                            this.setState({done: true, time: this.state.time + 1})
-                        else
-                            this.setState({check: false, done: false, time: 0, sp: new Spreadsheet()})
-                    }, 1000)
-
-                    }/100
-                    </div>
+                    <div className="card-start_text">Поиск событий...</div>
                     <div className="button_next" onClick={() => {
                         document.location.href = "#/";
                     }}>
                         <div className="inner">На главную</div>
                     </div>
-
                 </div>
             </div>
         );
