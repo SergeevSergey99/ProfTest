@@ -57,7 +57,11 @@ class Events extends React.Component {
                 "декабря"
             ];
 
-            if (this.state.sp.events.length > 0)
+            if (this.state.sp.events.length > 0 && max(localStorage.getItem("Nat"),
+                localStorage.getItem("Hud"),
+                localStorage.getItem("Tech"),
+                localStorage.getItem("Num"),
+                localStorage.getItem("Soc")) > 0)
                 return (
                     <div>
                         <div className="card">
