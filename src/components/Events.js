@@ -57,7 +57,7 @@ class Events extends React.Component {
                 "декабря"
             ];
 
-            if (this.state.sp.events.length > 0 && max(localStorage.getItem("Nat"),
+            if (this.state.sp.events.length > 0 && Math.max(localStorage.getItem("Nat"),
                 localStorage.getItem("Hud"),
                 localStorage.getItem("Tech"),
                 localStorage.getItem("Num"),
