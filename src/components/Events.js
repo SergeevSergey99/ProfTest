@@ -57,11 +57,11 @@ class Events extends React.Component {
                 "декабря"
             ];
 
-            if (this.state.sp.events.length > 0 && Math.max(localStorage.getItem("Nat"),
-                localStorage.getItem("Hud"),
-                localStorage.getItem("Tech"),
-                localStorage.getItem("Num"),
-                localStorage.getItem("Soc")) > 0)
+            if (this.state.sp.events.length > 0 && Math.max(parseInt(localStorage.getItem("Nat")),
+                parseInt(localStorage.getItem("Hud")),
+                parseInt(localStorage.getItem("Tech")),
+                parseInt(localStorage.getItem("Num")),
+                parseInt(localStorage.getItem("Soc"))) > 0)
                 return (
                     <div>
                         <div className="card">
