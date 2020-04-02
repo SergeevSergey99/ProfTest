@@ -68,7 +68,7 @@ class Events extends React.Component {
                             <div className="result_text">События</div>
                             <div className="card-start_text">
                                 <p>Название: {this.state.sp.events[this.state.currentEvent]["Название"]}</p>
-                                <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"]]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
+                                <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"] - 1]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
                                 <p>Место: {this.state.sp.events[this.state.currentEvent]["Место"]}</p>
                                 <p>Время: {this.state.sp.events[this.state.currentEvent]["Время"]}</p>
                             </div>

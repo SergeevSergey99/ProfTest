@@ -120,28 +120,26 @@ class Spreadsheet {
         let yyyy = today.getFullYear();
 
 
-        console.log(arr[3]["name"]);
-        console.log(arr[4]["name"]);
+      /*  console.log(dd);
+        console.log(mm);
+        console.log(yyyy);*/
         rows.forEach(row => {
-            console.log(row);
+//            console.log(row);
             if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
                 row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
             {
-                console.log(row["Дата"]);
+/*                console.log(row["Дата"]);
                 console.log(row["Месяц"]);
                 console.log(row["Год"]);
                 console.log(dd);
                 console.log(mm);
                 console.log(yyyy);
-                //01.03.2020
+                //01.03.2020*/
                 if (parseInt(row["Год"]) >  parseInt(yyyy) ||
                     (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] > parseInt(mm)) ||
-                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] === parseInt(mm) && row["Дата"] >= parseInt(dd))) {
-
+                    (parseInt(row["Год"])  ===  parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) >= parseInt(dd))) {
                             this.events.push(row);
-                            console.log(row);
-
-
+  //                          console.log(row);
                 }
             }
         });
