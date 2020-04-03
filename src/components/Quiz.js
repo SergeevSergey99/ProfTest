@@ -12,6 +12,9 @@ export var Superstate = {
 };
 
 class Quiz extends React.Component {
+    /*props = {
+        pictures: string[]
+    };*/
     state = {
         info: true,
         currentQuestion: 0,
@@ -45,6 +48,12 @@ class Quiz extends React.Component {
     };
 
     componentDidMount() {
+
+
+        QuizData.forEach((picture) => {
+            const img = new Image();
+            img.src = picture.image;
+        });
         this.loadQuiz();
     }
 
