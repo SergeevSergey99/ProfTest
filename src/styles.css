@@ -259,7 +259,7 @@ body{
     left: 30px;
     top: 0px;
 
-    font-family: Rubik;
+    font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
@@ -279,7 +279,7 @@ body{
     left: 30px;
     top: 108px;
 
-    font-family: Rubik;
+    font-family: Rubik, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -291,12 +291,14 @@ body{
      /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
      position: relative;
      width: 340px;
-     height: 103px;
-     left: 30px;
-     top: 50px;
+     height: 99px;
+     left: 60px;
+     top: 20px;
 
-    cursor: pointer;
-     font-family: Rubik;
+
+    vertical-align: center;
+     cursor: pointer;
+     font-family: Rubik, serif;
      font-style: normal;
      font-weight: normal;
      font-size: 16px;
