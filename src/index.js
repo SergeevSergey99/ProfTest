@@ -35,8 +35,12 @@ function App() {
 
     return (
         <HashRouter>
-            <div style={{position: 'absolute'}}>
-                <Particles params={particleOpt}/>
+            <div style={{position: 'absolute',
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%"}}>
+                <Particles  params={particleOpt}/>
             </div>
             <Header/>
             <Main/>

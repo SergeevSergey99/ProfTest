@@ -186,13 +186,7 @@
     animation-direction: normal;
 }
 
-.particles {
-    width: max-content;
 
-    height: max-content;
-
-    background: #13E8E9;
-}
 
 body {
     margin: 0;
