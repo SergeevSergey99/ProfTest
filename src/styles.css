@@ -2,27 +2,32 @@
     font-family: sans-serif;
     text-align: center;
 }
+
 .Quiz {
     font-family: sans-serif;
     text-align: center;
 }
+
 .Desktop-1 {
     position: relative;
     width: 100%;
     height: 100%;
     background: #FFFFFF;
 }
+
 .header {
     position: relative;
     width: 100%;
-    height: 7em;
+    height: 6em;
     top: 0;
 }
+
 .card {
     position: relative;
 
-    margin:auto;
-    width: 22em;
+    margin: auto;
+    width: 90%;
+    max-width: 22em;
     height: 33em;
 
 
@@ -30,22 +35,25 @@
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 0.8em;
 }
+
 .card_results {
     position: relative;
 
-    margin:auto;
-    width: 24em;
+    margin: auto;
+    width: 90%;
+    max-width: 44em;
     height: 35em;
 
     background: #EEEEEE;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
+
 .result_text {
     /* Результаты профориентационного тестирования */
     position: relative;
-    width: 100%;
-    left: 20px;
+    width: 90%;
+    left: 5%;
     top: 23px;
 
     font-family: Rubik, serif;
@@ -57,6 +65,7 @@
     color: #000000;
 
 }
+
 .results {
 
     color: #FFFFFF;
@@ -70,54 +79,59 @@
     padding-top: 20px;
     padding-left: 10px;
 }
+
 .img {
     position: absolute;
-    width: 364px;
+    width: 94%;
     height: 364px;
-    left: 538px;
-    top: 122px;
+    left: 3%;
+    top: 3%;
 
     background: #FFFFFF;
     border-radius: 8px;
 }
+
 .card-text {
 
-    position: absolute;
-    width: 340px;
-    height: 92px;
-    left: 550px;
-    top: 506px;
+    position: relative;
+    width: 94%;
+    height: 4.6em;
+    left: 3%;
+    top: 75%;
 
+    text-align: center;
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 24px;
     line-height: 31px;
     display: flex;
-    align-items: center;
 
     color: #000000;
 
 }
+
 .grade {
     position: absolute;
-    width: 380px;
-    height: 64px;
-    left: 530px;
-    top: 646px;
+    width: 100%;
+    height: 4em;
+    left: 0;
+    top: 34em;
 
 
     background: #EEEEEE;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
+
 .stars {
     position: relative;
     font-size: 4.0rem;
     text-align: center;
-    top: -16px;
+    top: -0.25em;
 
 }
+
 #Rectangle-1 {
 
     width: 100%;
@@ -126,6 +140,7 @@
     background: #C4C4C4;
 
 }
+
 #Ellipse-1 {
 
     position: absolute;
@@ -137,6 +152,7 @@
 
     background: #DDDDDD;
 }
+
 #Ellipse-2 {
 
     position: absolute;
@@ -148,72 +164,91 @@
 
     background: #DDDDDD;
 }
+
 .fade {
     animation: fade-in-keyframes 1s;
 }
+
 @keyframes fade-in-keyframes {
-    from {opacity: 0}
-    to {opacity: 1}
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
+
 .reverse {
     animation-direction: reverse;
 }
-.normal{
+
+.normal {
     animation-direction: normal;
 }
-.particles{
+
+.particles {
     width: 100%;
     height: 150vh;
     background: #13E8E9;
 }
-body{
+
+body {
     margin: 0;
     background: #DDDDE0;
 }
-#root{
+
+#root {
     height: 0;
 }
-.card_options{
+
+.card_options {
     /* Rectangle 44 */
 
 
     position: absolute;
-    width: 364px;
-    height: 330px;
-    left: 538px;
-    top: 288px;
+    width: 94%;
+    height: 60%;
+    left: 3%;
+    top: 35%;
 
     background: #FFFFFF;
     border-radius: 8px;
 }
-.card_option{
+.parts{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+}
+
+.card_option {
     /* Киберспорт */
     position: relative;
-    width: 340px;
-    height: 56px;
-    left: 12px;
-    top: 40px;
+    width: 94%;
+    height: 33%;
+    left: 3%;
 
+    text-align: center;
     cursor: pointer;
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 24px;
-    display: flex;
-    align-items: center;
+
 
     color: #000000;
 }
-.card-text2{
+
+.card-text2 {
     /* Выбери увлечение, которое нравится больше всего */
 
 
     position: absolute;
-    width: 340px;
-    height: 126px;
-    left: 550px;
-    top: 134px;
+    width: 94%;
+    height: 5em;
+    left: 3%;
+    top: 3%;
 
     font-family: Rubik, serif;
     font-style: normal;
@@ -226,7 +261,8 @@ body{
     color: #000000;
 
 }
-.button_next{
+
+.button_next {
     /* Rectangle 4 */
     position: absolute;
     width: 100%;
@@ -247,10 +283,11 @@ body{
 
     color: #000000;
 }
-.registr_title{
+
+.registr_title {
     /* Регистрация */
-   position: absolute;
-    width: 340px;
+    position: absolute;
+    width: 80%;
     height: 126px;
     left: 10%;
     top: 0px;
@@ -265,14 +302,14 @@ body{
 
     color: #000000;
 }
-.registr_text{
+
+.registr_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
 
 
     position: absolute;
-    width: 340px;
-    height: 103px;
-    left: 30px;
+    width: 80%;
+    left: 10%;
     top: 108px;
 
     font-family: Rubik, serif;
@@ -283,29 +320,30 @@ body{
 
     color: #000000;
 }
-.card-start_text{
-     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
-     position: relative;
-     width: 340px;
-     height: 99px;
-     left: 60px;
-     top: 20px;
 
+.card-start_text {
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+    position: relative;
+    width: 100%;
+    height: 20%;
+    text-align: center;
 
     vertical-align: center;
-     cursor: pointer;
-     font-family: Rubik, serif;
-     font-style: normal;
-     font-weight: normal;
-     font-size: 16px;
-     line-height: 19px;
+    cursor: pointer;
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
 
-     color: #000000;
- }
-.inner{
-position: relative;
+    color: #000000;
+}
+
+.inner {
+    position: relative;
     top: 33%;
 }
+
 .registr_button {
     /* Rectangle 4 */
     position: absolute;
@@ -343,7 +381,8 @@ position: relative;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
-.registr_field1{
+
+.registr_field1 {
     /* Rectangle 44 */
 
 
@@ -357,6 +396,7 @@ position: relative;
     background: #FFFFFF;
     border-radius: 8px;
 }
+
 .registr_field2 {
     /* Rectangle 44 */
 

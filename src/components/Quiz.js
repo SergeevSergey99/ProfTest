@@ -87,7 +87,7 @@ class Quiz extends React.Component {
 
     render() {
 
-        if(localStorage < 7)
+        if (localStorage < 7)
             document.location.href = "#/";
         if (this.state.info) {
             return (
@@ -100,16 +100,25 @@ class Quiz extends React.Component {
                 >
                     <div className="card_results">
                         <div className="result_text">
-                        <p><h2>Задание</h2></p>
-                        <p><h4>Далее будут представлены виды занятий</h4></p>
-                        <p>Оцените насколько они вам интересны по 5-ти балльной шкале</p>
+                            <p><h2>Задание</h2></p>
+                            <p><h4>Далее будут представлены виды занятий</h4></p>
+                            <p>Оцените насколько они вам интересны по 5-ти балльной шкале</p>
                         </div>
-                        <div className="button_next" onClick={() => {
+                        <div className="registr_button_exit" onClick={() => {
                             if (!this.state.fadeRev)
                                 this.setState({fadeRev: true})
                         }
-                        }><div className="inner">
-                            Понятно</div>
+                        }>
+                            <div className="inner">
+                                Понятно
+                            </div>
+                        </div>
+                        <div className="registr_button" onClick={() => {
+                            document.location.href = "#/";
+                        }}>
+                            <div className="inner">
+                                На главную
+                            </div>
                         </div>
                     </div>
 
@@ -141,25 +150,25 @@ class Quiz extends React.Component {
                 >
 
 
-                    <div className="card"/>
-                    <img className="img"
-                         src={this.state.image}
-                         alt={this.state.image}
-                    />
-                    <div className="card-text">
-                        <p>{this.state.question}</p>
-                    </div>
-                    <div className="grade">
-                        <div className="stars">
-                            <StarRatingComponent
-                                name="rate1"
-                                starCount={5}
-                                value={rating}
-                                onStarClick={this.onStarClick.bind(this)}
-                            />
+                    <div className="card">
+                        <img className="img"
+                             src={this.state.image}
+                             alt={this.state.image}
+                        />
+                        <div className="card-text">
+                            <p>{this.state.question}</p>
+                        </div>
+                        <div className="grade">
+                            <div className="stars">
+                                <StarRatingComponent
+                                    name="rate1"
+                                    starCount={5}
+                                    value={rating}
+                                    onStarClick={this.onStarClick.bind(this)}
+                                />
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
             );

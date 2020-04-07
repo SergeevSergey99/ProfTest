@@ -136,10 +136,10 @@ class Events extends React.Component {
         }, 1000);
         return (
             <div>
-                <div className="card_results">
+                <div className="card">
                     <div className="result_text">События</div>
                     <div className="card-start_text">Поиск событий...</div>
-                    <div className="button_next" onClick={() => {
+                    <div className="registr_button" onClick={() => {
                         document.location.href = "#/";
                     }}>
                         <div className="inner">На главную</div>

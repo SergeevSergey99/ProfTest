@@ -5,7 +5,7 @@ import "./styles.css";
 import Particles from 'react-particles-js';
 import Header from './components/header';
 import Main from './components/Main';
-import { HashRouter } from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 
 const particleOpt = {
     particles: {
@@ -36,10 +36,12 @@ function App() {
     return (
         <HashRouter>
 
+            <div className="parts">
+                <Particles params={particleOpt}/>
+            </div>
             <Header/>
             <Main/>
 
-            <Particles params={particleOpt} />
         </HashRouter>
     );
 }

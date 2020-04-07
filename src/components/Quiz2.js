@@ -12,6 +12,7 @@ export var Superstate2 = {
     __Nat: 0,
 };
 let sp = new Spreadsheet();
+
 class Quiz2 extends React.Component {
     state = {
         info: true,
@@ -75,11 +76,11 @@ class Quiz2 extends React.Component {
     nextQuestionHandler = (my_index) => {
         if (!this.state.fadeRev)
             this.setState({
-                _Nat: this.state._Nat + this.state.Nat[my_index]*2,
-                _Num: this.state._Num + this.state.Num[my_index]*2,
-                _Tech: this.state._Tech + this.state.Tech[my_index]*2,
-                _Soc: this.state._Soc + this.state.Soc[my_index]*2,
-                _Hud: this.state._Hud + this.state.Hud[my_index]*2,
+                _Nat: this.state._Nat + this.state.Nat[my_index] * 2,
+                _Num: this.state._Num + this.state.Num[my_index] * 2,
+                _Tech: this.state._Tech + this.state.Tech[my_index] * 2,
+                _Soc: this.state._Soc + this.state.Soc[my_index] * 2,
+                _Hud: this.state._Hud + this.state.Hud[my_index] * 2,
                 fadeRev: true
             });
     };
@@ -100,13 +101,14 @@ class Quiz2 extends React.Component {
                             <p><h4>Далее будут представлены списки кружков</h4></p>
                             <p>Выберите наиболее интересный из представленных</p>
                         </div>
-                        <div className="button_next" onClick={() => {
+                        <div className="registr_button_exit" onClick={() => {
                             if (!this.state.fadeRev)
                                 this.setState({fadeRev: true})
                         }
                         }>
                             <div className="inner">
-                                Понятно</div>
+                                Понятно
+                            </div>
                         </div>
                     </div>
 
@@ -117,32 +119,33 @@ class Quiz2 extends React.Component {
         if (this.state.currentQuestion <= 27) {
             return (
                 <div className={this.state.fadeRev ? 'fade reverse' : ''}
-                    onAnimationEnd={() => {
-                        if (this.state.fadeRev) {
-                            this.setState({
+                     onAnimationEnd={() => {
+                         if (this.state.fadeRev) {
+                             this.setState({
 
-                                fadeRev: false,
-                                // fade: true,
-                                currentQuestion: this.state.currentQuestion + 3,
-                            })
-                        }
-                    }
-                    }
+                                 fadeRev: false,
+                                 // fade: true,
+                                 currentQuestion: this.state.currentQuestion + 3,
+                             })
+                         }
+                     }
+                     }
                 >
 
 
-                    <div className="card"/>
-                    <div className="card-text2">
-                        <p>Выбери увлечение, которое нравится больше всего</p>
+                    <div className="card">
+                        <div className="card-text2">
+                            <p>Выбери увлечение, которое нравится больше всего</p>
+                        </div>
+                        <div className="card_options">
+                            <div className="card_option"
+                                 onClick={() => this.nextQuestionHandler(0)}><div className="inner">{this.state.question[0]}</div></div>
+                            <div className="card_option"
+                                 onClick={() => this.nextQuestionHandler(1)}><div className="inner">{this.state.question[1]}</div></div>
+                            <div className="card_option"
+                                 onClick={() => this.nextQuestionHandler(2)}><div className="inner">{this.state.question[2]}</div></div>
+                        </div>
                     </div>
-                    <div className="card_options">
-                        <div className="card_option" onClick={() => this.nextQuestionHandler(0)}>{this.state.question[0]}</div>
-                        <p/>
-                        <div className="card_option" onClick={() => this.nextQuestionHandler(1)}>{this.state.question[1]}</div>
-                        <p/>
-                        <div className="card_option" onClick={() => this.nextQuestionHandler(2)}>{this.state.question[2]}</div>
-                    </div>
-
                 </div>
 
             );
@@ -155,7 +158,7 @@ class Quiz2 extends React.Component {
         Superstate2.__Soc += this.state._Soc;
         Superstate2.__Hud += this.state._Hud;
 
-        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech,Superstate2.__Num,Superstate2.__Soc);
+        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech, Superstate2.__Num, Superstate2.__Soc);
 
         localStorage.setItem('Hud', Superstate2.__Hud.toString());
         localStorage.setItem('Nat', Superstate2.__Nat.toString());
