@@ -71,6 +71,7 @@ class Events extends React.Component {
                                 <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"] - 1]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
                                 <p>Место: {this.state.sp.events[this.state.currentEvent]["Место"]}</p>
                                 <p>Время: {this.state.sp.events[this.state.currentEvent]["Время"]}</p>
+                                <p>{this.state.currentEvent+1} из {this.state.sp.events.length}</p>
                             </div>
                             <div className="registr_button_exit" onClick={() => {
                                 this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});

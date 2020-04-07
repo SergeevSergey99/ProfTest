@@ -36,10 +36,10 @@ function App() {
     return (
         <HashRouter>
 
-            <Particles params={particleOpt}/>
             <Header/>
             <Main/>
 
+            <Particles params={particleOpt} />
         </HashRouter>
     );
 }
