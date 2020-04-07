@@ -29,19 +29,17 @@ const particleOpt = {
             }
         }
     }*/
-}
+};
 
 function App() {
 
     return (
         <HashRouter>
-
-            <div className="parts">
+            <div style={{position: 'absolute'}}>
                 <Particles params={particleOpt}/>
             </div>
             <Header/>
             <Main/>
-
         </HashRouter>
     );
 }
