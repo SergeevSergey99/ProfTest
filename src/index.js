@@ -34,17 +34,29 @@ const particleOpt = {
 function App() {
 
     return (
-        <HashRouter>
-            <div style={{position: 'absolute',
-                top: 0,
-                left: 0,
-                width: "max-content",
-                height: "max-content"}}>
-                <Particles  params={particleOpt}/>
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
+        }}>
+            <div>
+                <Particles style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0
+                }} params={particleOpt}/>
             </div>
-            <Header/>
-            <Main/>
-        </HashRouter>
+
+            <HashRouter>
+
+                <Header/>
+                <Main/>
+            </HashRouter>
+        </div>
     );
 }
 
