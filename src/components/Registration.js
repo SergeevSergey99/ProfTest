@@ -1,18 +1,15 @@
 import React from "react";
 import Spreadsheet from '../spreadsheet';
 
-
 class Registration extends React.Component {
-
     state = {
         sp: new Spreadsheet(),
         check: false,
         done: false,
         stop: false,
         time: 0
-    }
+    };
     loadQuiz = () => {
-
         this.setState(() => {
             return {
                 // sp: new Spreadsheet(),
@@ -27,7 +24,6 @@ class Registration extends React.Component {
     }
 
     render() {
-
         if (localStorage.length >= 7 && !this.state.stop) {
             let _student = new Spreadsheet();
             _student.done = true;
@@ -40,11 +36,11 @@ class Registration extends React.Component {
             _student.student['С'] = parseInt(localStorage.getItem('Soc'));
             this.setState({stop: true, check: true, done: true, sp: _student});
         }
-
         if (!this.state.check)
             return (
                 <div>
                     <div className="card">
+
                         <div className="registr_title">Регистрация</div>
                         <div className="registr_text">Расписание событий по профориентации для школьников
                             Адмиралтейского
@@ -52,16 +48,26 @@ class Registration extends React.Component {
                             номер
                             школы.
                         </div>
-                        <input type="phone" id="phone" className="registr_field1" placeholder="Номер телефона"/>
-                        <input type="school" id="school" className="registr_field2" placeholder="Номер школы"/>
+                        <input type="tel" required id="phone" className="registr_field1"
+                               placeholder="+7 (900) 123-45-67"
+                               pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"/>
+                        <input type="school" required id="school" className="registr_field2" placeholder="Номер школы"/>
+
                         <div className="registr_button" onClick={() => {
-                            if (document.getElementById('phone').value !== '' && document.getElementById('school').value !== '') {
-                                this.state.sp.AddRowToSheet(document.getElementById('phone').value, document.getElementById('school').value);
-                                this.setState({check: true});
-                                setTimeout(() => {
-                                    this.setState({done: true})
-                                }, 500)
-                                //console.log(sp.student);
+                            let Phone = document.getElementById('phone').value.replace(/[^+\d]/g, '');
+                            if (Phone.length === 11)
+                            {
+                                if (document.getElementById('phone').value !== '' && document.getElementById('school').value !== '') {
+                                    this.state.sp.AddRowToSheet("'" + Phone, "'" + document.getElementById('school').value);
+                                    this.setState({check: true});
+                                    setTimeout(() => {
+                                        this.setState({done: true})
+                                    }, 500)
+                                }
+                            }
+                            else {
+                                document.getElementById('phone').value = "";
+                                document.getElementById('school').value = "";
                             }
                         }}>
                             <div className="inner">
@@ -99,17 +105,13 @@ class Registration extends React.Component {
                 localStorage.setItem('Soc', this.state.sp.student['С'].toString());
                 localStorage.setItem('Tech', this.state.sp.student['Т'].toString());
 
-
                 return (
                     <div>
-
-
                         <div className="card">
                             <div className="registr_title">Вы авторизованы</div>
                             <div className="registr_text">
                                 <p>Номер: {this.state.sp.student['Телефон']}</p>
                                 <p>Школа: {this.state.sp.student['Школа']}</p>
-
                             </div>
                             <div className="registr_button_exit" onClick={() => {
                                 localStorage.clear();
@@ -122,7 +124,6 @@ class Registration extends React.Component {
                             }}>
                                 <div className="inner">На главную</div>
                             </div>
-
                         </div>
                     </div>
                 );
