@@ -57,8 +57,9 @@ class Registration extends React.Component {
                             let Phone = document.getElementById('phone').value.replace(/[^+\d]/g, '');
                             if (Phone.length === 11)
                             {
+                                Phone = "7" + Phone.substring(1);
                                 if (document.getElementById('phone').value !== '' && document.getElementById('school').value !== '') {
-                                    this.state.sp.AddRowToSheet("'" + Phone, "'" + document.getElementById('school').value);
+                                    this.state.sp.AddRowToSheet(Phone,  document.getElementById('school').value);
                                     this.setState({check: true});
                                     setTimeout(() => {
                                         this.setState({done: true})
