@@ -199,11 +199,15 @@ class Spreadsheet {
 
                 if (row['Телефон'] === phone && row['Школа'] === school) {
                     //Search = true;
-                    if (!String(row['Результаты']).includes(event_name))
-                        if (row['Результаты'] === undefined)
+                    if (!String(row['Результаты']).includes(event_name)) {
+                        if (row['Результаты'] === undefined) {
                             row['Результаты'] = "";
+                            row['Сумма'] = 0;
+                        }
                         row['Результаты'] += event_name + ":" + result + ";";
-                    row.save();
+                        row['Сумма'] = parseInt(row['Сумма']) + parseInt(result);
+                        row.save();
+                    }
                     return row;
                 }
 //            if (!Search)
