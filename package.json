@@ -13,6 +13,7 @@
     "@vtex/phone": "^4.8.3",
     "bootstrap": "4.4.1",
     "google-spreadsheet": "^3.0.9",
+    "googleapis": "^49.0.0",
     "react": "16.12.0",
     "react-animations": "^1.0.0",
     "react-dom": "16.12.0",

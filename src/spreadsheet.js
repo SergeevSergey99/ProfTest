@@ -1,7 +1,8 @@
 const {GoogleSpreadsheet} = require('google-spreadsheet');
 
 const creds = require('./client_secret.json');
-
+const {google} = require('googleapis');
+const Gsheets = google.sheets('v4');
 class Spreadsheet {
     printStudent() {
         console.log('Телефон: ' + this.student['Телефон']);
@@ -126,8 +127,7 @@ class Spreadsheet {
         rows.forEach(row => {
 //            console.log(row);
             if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
-                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
-            {
+                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"]) {
                 /*                console.log(row["Дата"]);
                                 console.log(row["Месяц"]);
                                 console.log(row["Год"]);
@@ -135,9 +135,9 @@ class Spreadsheet {
                                 console.log(mm);
                                 console.log(yyyy);
                                 //01.03.2020*/
-                if (parseInt(row["Год"]) >  parseInt(yyyy) ||
-                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] > parseInt(mm)) ||
-                    (parseInt(row["Год"])  ===  parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) >= parseInt(dd))) {
+                if (parseInt(row["Год"]) > parseInt(yyyy) ||
+                    (parseInt(row["Год"]) === parseInt(yyyy) && row["Месяц"] > parseInt(mm)) ||
+                    (parseInt(row["Год"]) === parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) >= parseInt(dd))) {
                     this.events.push(row);
                     //                          console.log(row);
                 }
@@ -174,11 +174,10 @@ class Spreadsheet {
 
         rows.forEach(row => {
             if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
-                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
-            {
-                if (parseInt(row["Год"]) <  parseInt(yyyy) ||
-                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] < parseInt(mm)) ||
-                    (parseInt(row["Год"])  ===  parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) <= parseInt(dd))) {
+                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"]) {
+                if (parseInt(row["Год"]) < parseInt(yyyy) ||
+                    (parseInt(row["Год"]) === parseInt(yyyy) && row["Месяц"] < parseInt(mm)) ||
+                    (parseInt(row["Год"]) === parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) <= parseInt(dd))) {
                     this.events.push(row);
                 }
             }
@@ -187,6 +186,32 @@ class Spreadsheet {
 
     }
 
+    async AddAnswer(phone, school, event_name, result) {
+
+        const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
+        await doc.useServiceAccountAuth(creds);
+        await doc.loadInfo();
+        const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+        const rows = await sheet.getRows();
+  //      let Search = false;
+   //     let i = 0;
+        rows.forEach(row => {
+
+                if (row['Телефон'] === phone && row['Школа'] === school) {
+                    //Search = true;
+                    if (!String(row['Результаты']).includes(event_name))
+                        if (row['Результаты'] === undefined)
+                            row['Результаты'] = "";
+                        row['Результаты'] += event_name + ":" + result + ";";
+                    row.save();
+                    return row;
+                }
+//            if (!Search)
+  //              i++;
+            }
+        );
+
+    }
 
     async updateRow(phone, school, e, h, t, c, s) {
         const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
@@ -209,6 +234,6 @@ class Spreadsheet {
 
     }
 }
-
-//console.log(AddRowToSheet('123456', '1213'));
+//let sp = new Spreadsheet();
+//sp.AddAnswer('79500090535', '30','a','1');
 export default Spreadsheet;
