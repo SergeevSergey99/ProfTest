@@ -120,32 +120,73 @@ class Spreadsheet {
         let yyyy = today.getFullYear();
 
 
-      /*  console.log(dd);
-        console.log(mm);
-        console.log(yyyy);*/
+        /*  console.log(dd);
+          console.log(mm);
+          console.log(yyyy);*/
         rows.forEach(row => {
 //            console.log(row);
             if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
                 row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
             {
-/*                console.log(row["Дата"]);
-                console.log(row["Месяц"]);
-                console.log(row["Год"]);
-                console.log(dd);
-                console.log(mm);
-                console.log(yyyy);
-                //01.03.2020*/
+                /*                console.log(row["Дата"]);
+                                console.log(row["Месяц"]);
+                                console.log(row["Год"]);
+                                console.log(dd);
+                                console.log(mm);
+                                console.log(yyyy);
+                                //01.03.2020*/
                 if (parseInt(row["Год"]) >  parseInt(yyyy) ||
                     (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] > parseInt(mm)) ||
                     (parseInt(row["Год"])  ===  parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) >= parseInt(dd))) {
-                            this.events.push(row);
-  //                          console.log(row);
+                    this.events.push(row);
+                    //                          console.log(row);
                 }
             }
         });
         this.checked = true;
 
     }
+
+    async GetQestions(e, h, t, c, s) {
+
+        const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
+        await doc.useServiceAccountAuth(creds);
+        await doc.loadInfo();
+
+        const sheet = doc.sheetsByIndex[1];
+        const rows = await sheet.getRows();
+
+        let arr = [
+            {"name": "Е", "value": e},
+            {"name": "Х", "value": h},
+            {"name": "Т", "value": t},
+            {"name": "Ц", "value": c},
+            {"name": "С", "value": s}
+        ];
+        arr.sort(function (a, b) {
+            return a["value"] - b["value"];
+        });
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+
+        rows.forEach(row => {
+            if (row['Направление 1'] === arr[3]["name"] || row['Направление 2'] === arr[3]["name"] ||
+                row['Направление 1'] === arr[4]["name"] || row['Направление 2'] === arr[4]["name"])
+            {
+                if (parseInt(row["Год"]) <  parseInt(yyyy) ||
+                    (parseInt(row["Год"])  ===  parseInt(yyyy) && row["Месяц"] < parseInt(mm)) ||
+                    (parseInt(row["Год"])  ===  parseInt(yyyy) && parseInt(row["Месяц"]) === parseInt(mm) && parseInt(row["Дата"]) <= parseInt(dd))) {
+                    this.events.push(row);
+                }
+            }
+        });
+        this.checked = true;
+
+    }
+
 
     async updateRow(phone, school, e, h, t, c, s) {
         const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
