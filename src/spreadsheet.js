@@ -3,6 +3,7 @@ const {GoogleSpreadsheet} = require('google-spreadsheet');
 const creds = require('./client_secret.json');
 const {google} = require('googleapis');
 const Gsheets = google.sheets('v4');
+
 class Spreadsheet {
     printStudent() {
         console.log('Телефон: ' + this.student['Телефон']);
@@ -71,7 +72,7 @@ class Spreadsheet {
             }
             if (!Search)
                 i++;
-        })
+        });
 
         if (Search) {
             this.student = rows[i];
@@ -147,14 +148,15 @@ class Spreadsheet {
 
     }
 
-    async GetQestions(e, h, t, c, s) {
+    async GetQestions(phone, e, h, t, c, s) {
 
         const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
         await doc.useServiceAccountAuth(creds);
         await doc.loadInfo();
 
-        const sheet = doc.sheetsByIndex[1];
-        const rows = await sheet.getRows();
+        let sheet = doc.sheetsByIndex[1];
+        let rows = await sheet.getRows();
+
 
         let arr = [
             {"name": "Е", "value": e},
@@ -182,6 +184,27 @@ class Spreadsheet {
                 }
             }
         });
+
+
+        sheet = doc.sheetsByIndex[1];
+        rows = await sheet.getRows();
+        rows.forEach(row => {
+
+            if (row['Телефон'] === phone) {
+
+                let i = 0;
+                this.events.forEach(ev => {
+
+                    if (row['Результаты'].includes(ev["Название"])) {
+                        this.events.splice(i, 1);
+                    }
+                    i++;
+                });
+                this.checked = true;
+                return;
+            }
+        });
+
         this.checked = true;
 
     }
@@ -193,8 +216,8 @@ class Spreadsheet {
         await doc.loadInfo();
         const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
         const rows = await sheet.getRows();
-  //      let Search = false;
-   //     let i = 0;
+        //      let Search = false;
+        //     let i = 0;
         rows.forEach(row => {
 
                 if (row['Телефон'] === phone && row['Школа'] === school) {
@@ -211,7 +234,7 @@ class Spreadsheet {
                     return row;
                 }
 //            if (!Search)
-  //              i++;
+                //              i++;
             }
         );
 
@@ -238,6 +261,7 @@ class Spreadsheet {
 
     }
 }
+
 //let sp = new Spreadsheet();
 //sp.AddAnswer('79500090535', '30','a','1');
 export default Spreadsheet;

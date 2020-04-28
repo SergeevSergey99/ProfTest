@@ -1,7 +1,7 @@
 import React from "react";
 import Spreadsheet from "../spreadsheet";
 
-class Events extends React.Component {
+class Quest extends React.Component {
 
     state = {
         sp: new Spreadsheet(),
@@ -29,7 +29,8 @@ class Events extends React.Component {
         if (localStorage < 7)
             document.location.href = "#/";
         if (this.state.check === false) {
-            this.state.sp.GetEvent(
+            this.state.sp.GetQestions(
+                localStorage.getItem("Phone"),
                 localStorage.getItem("Nat"),
                 localStorage.getItem("Hud"),
                 localStorage.getItem("Tech"),
@@ -89,30 +90,6 @@ class Events extends React.Component {
                         </div>
                     </div>
                 );
-            /*else
-                  return (
-                      <div>
-                          <div className="card">
-                              <div className="result_text">События</div>
-                              <div className="card-start_text">
-                                  <p>Для вас не найдено событий</p>
-                              </div>
-                              <div className="registr_button_exit" onClick={() => {
-                                  this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
-
-                              }}>
-                                  <div className="inner">Следующее</div>
-                              </div>
-                              <div className="registr_button" onClick={() => {
-                                  document.location.href = "#/";
-                              }}>
-                                  <div className="inner">На главную</div>
-                              </div>
-
-                          </div>
-                      </div>
-
-                  );*/
         }
         if (this.state.done === true && this.state.sp.checked)
             return (
@@ -139,7 +116,7 @@ class Events extends React.Component {
             <div>
                 <div className="card">
                     <div className="result_text">События</div>
-                    <div className="registr_text">Поиск событий...</div>
+                    <div className="registr_text">Поиск заданий...</div>
                     <div className="registr_button" onClick={() => {
                         document.location.href = "#/";
                     }}>
@@ -152,4 +129,4 @@ class Events extends React.Component {
     }
 }
 
-export default Events;
+export default Quest;
