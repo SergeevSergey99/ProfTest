@@ -34,6 +34,11 @@ class StartPage extends React.Component {
                         }}>
                             <div className="inner">События</div>
                         </div>
+                        <div className="card-start_text" onClick={() => {
+                            document.location.href = "#/Quest";
+                        }}>
+                            <div className="inner">Вопросы</div>
+                        </div>
                     </div>
                 </div>
             );
