@@ -1,8 +1,7 @@
 const {GoogleSpreadsheet} = require('google-spreadsheet');
 
 const creds = require('./client_secret.json');
-const {google} = require('googleapis');
-const Gsheets = google.sheets('v4');
+//const {google} = require('googleapis');
 
 class Spreadsheet {
     printStudent() {
