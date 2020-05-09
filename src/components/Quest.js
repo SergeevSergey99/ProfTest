@@ -67,7 +67,7 @@ class Quest extends React.Component {
                 return (
                     <div>
                         <div className="card">
-                            <div className="result_text">События</div>
+                            <div className="result_text">Задания</div>
                             <div className="registr_text">
                                 <p>Название: {this.state.sp.events[this.state.currentEvent]["Название"]}</p>
                                 <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"] - 1]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
@@ -95,7 +95,7 @@ class Quest extends React.Component {
             return (
                 <div>
                     <div className="card_results">
-                        <div className="result_text">События</div>
+                        <div className="result_text">Задания</div>
                         <div className="registr_text">Ничего</div>
                         <div className="registr_button" onClick={() => {
                             document.location.href = "#/";
@@ -115,7 +115,7 @@ class Quest extends React.Component {
         return (
             <div>
                 <div className="card">
-                    <div className="result_text">События</div>
+                    <div className="result_text">Задания</div>
                     <div className="registr_text">Поиск заданий...</div>
                     <div className="registr_button" onClick={() => {
                         document.location.href = "#/";
