@@ -44,20 +44,6 @@ class Quest extends React.Component {
         }
 
         if (this.state.done === true) {
-            let months = [
-                "января",
-                "февраля",
-                "марта",
-                "апреля",
-                "мая",
-                "июня",
-                "июля",
-                "августа",
-                "сентября",
-                "октября",
-                "ноября",
-                "декабря"
-            ];
 
             if (this.state.sp.events.length > 0 && Math.max(parseInt(localStorage.getItem("Nat")),
                 parseInt(localStorage.getItem("Hud")),
@@ -70,9 +56,7 @@ class Quest extends React.Component {
                             <div className="result_text">Задания</div>
                             <div className="registr_text">
                                 <p>Название: {this.state.sp.events[this.state.currentEvent]["Название"]}</p>
-                                <p>Дата: {this.state.sp.events[this.state.currentEvent]["Дата"]} {months[this.state.sp.events[this.state.currentEvent]["Месяц"] - 1]} {this.state.sp.events[this.state.currentEvent]["Год"]}</p>
-                                <p>Место: {this.state.sp.events[this.state.currentEvent]["Место"]}</p>
-                                <p>Время: {this.state.sp.events[this.state.currentEvent]["Время"]}</p>
+
                                 <p>{this.state.currentEvent + 1} из {this.state.sp.events.length}</p>
                             </div>
 
