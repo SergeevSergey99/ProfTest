@@ -7,7 +7,8 @@ class Quest extends React.Component {
         sp: new Spreadsheet(),
         check: "false",
         done: "false",
-        currentEvent: 0
+        currentEvent: 0,
+        startQuest: false,
     };
     loadQuiz = () => {
 
@@ -28,9 +29,11 @@ class Quest extends React.Component {
 
         if (localStorage < 7)
             document.location.href = "#/";
+        //чтение данных из localStorage и получиние событий
         if (this.state.check === false) {
             this.state.sp.GetQestions(
                 localStorage.getItem("Phone"),
+                localStorage.getItem("School"),
                 localStorage.getItem("Nat"),
                 localStorage.getItem("Hud"),
                 localStorage.getItem("Tech"),
@@ -38,13 +41,18 @@ class Quest extends React.Component {
                 localStorage.getItem("Soc")
             );
             this.setState({check: true});
-            setTimeout(() => {
-                this.setState({done: true})
-            }, 500);
         }
+        /*        if (this.state.sp.checked === true)
+                //    setTimeout(() => {
+                {
+                    this.state.sp.checked = false;
+                    this.setState({done: true});
+                }*/
+        //  }, 500);
 
-        if (this.state.done === true) {
 
+        if (this.state.sp.checked) {
+            //вывод событий если они есть и если пользователь проходил тест
             if (this.state.sp.events.length > 0 && Math.max(parseInt(localStorage.getItem("Nat")),
                 parseInt(localStorage.getItem("Hud")),
                 parseInt(localStorage.getItem("Tech")),
@@ -82,8 +90,8 @@ class Quest extends React.Component {
                         </div>
                     </div>
                 );
-        }
-        if (this.state.done === true && this.state.sp.checked)
+
+            // В противном случае ничего
             return (
                 <div>
                     <div className="card_results">
@@ -98,6 +106,8 @@ class Quest extends React.Component {
                     </div>
                 </div>
             );
+        }
+        // Если данные еще не получены переодически обновляем страницу в ожидании
         setTimeout(() => {
             if (this.state.time < 20)
                 this.setState({done: true, time: this.state.time + 1});

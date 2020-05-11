@@ -147,7 +147,7 @@ class Spreadsheet {
 
     }
 
-    async GetQestions(phone, e, h, t, c, s) {
+    async GetQestions(phone, school, e, h, t, c, s) {
 
         const doc = new GoogleSpreadsheet('1iMeDgVk4racpEhVD5751OFsiCvJMBk2k7DJdt4YoPyo');
         await doc.useServiceAccountAuth(creds);
@@ -185,20 +185,31 @@ class Spreadsheet {
         });
 
 
-        sheet = doc.sheetsByIndex[1];
+        sheet = doc.sheetsByIndex[0];
         rows = await sheet.getRows();
+
         rows.forEach(row => {
 
-            if (row['Телефон'] === phone) {
+            if (row['Телефон'] === phone && row['Школа'] === school) {
 
-                let i = 0;
-                this.events.forEach(ev => {
+               // let i = 0;
+                this.events.forEach(
+                    function(item, index, object) {
+                        if (row['Результаты'].includes(item['Название'])) {
+                            object.splice(index, 1);
+                        }
+                    }
+                    /*ev => {
+                    console.log(ev['Название']);
+                    console.log(row['Результаты']);
+                    console.log(row['Результаты'].includes(ev['Название']));
 
-                    if (row['Результаты'].includes(ev["Название"])) {
-                        this.events.splice(i, 1);
+                    if (row['Результаты'].includes(ev['Название'])) {
+                        this.events = this.events.splice(0, i).concat(this.events.splice(i + 1));
                     }
                     i++;
-                });
+                }*/
+                );
                 this.checked = true;
                 return;
             }
