@@ -9,6 +9,15 @@ class Quest extends React.Component {
         done: "false",
         currentEvent: 0,
         startQuest: false,
+        fadeRev: false,
+        currentQuestion: 0,
+        styles: [
+            "card_option4",
+            "card_option4",
+            "card_option4",
+            "card_option4",
+        ],
+        sum: 0
     };
     loadQuiz = () => {
 
@@ -25,9 +34,38 @@ class Quest extends React.Component {
         this.loadQuiz();
     }
 
+    check = (my_index) => {
+        if (!this.state.fadeRev) {
+            if (parseInt(my_index) === parseInt(this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + "+"])) {
+                let st = this.state.styles;
+                st[my_index - 1] = "card_option4_true";
+                this.setState({styles: st, fadeRev: true, sum: this.state.sum + 1});
+                console.log("++++");
+            } else {
+                let st = this.state.styles;
+                st[my_index - 1] = "card_option4_wrong";
+                this.setState({styles: st, fadeRev: true});
+            }
+            console.log("sum: " + (this.state.sum));
+            console.log("right: " + this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + "+"]);
+
+        }
+    };
+
     render() {
 
-        if (localStorage < 7)
+        if(this.state.currentQuestion > 4)
+        {
+            this.state.sp.AddAnswer(
+                localStorage.getItem("Phone"),
+                localStorage.getItem("School"),
+                this.state.sp.events[this.state.currentEvent]["Название"],
+                this.state.sum
+                );
+            document.location.href = "#/";
+            return (<div/>)
+        }
+        if (localStorage < 7 )
             document.location.href = "#/";
         //чтение данных из localStorage и получиние событий
         if (this.state.check === false) {
@@ -52,6 +90,59 @@ class Quest extends React.Component {
 
 
         if (this.state.sp.checked) {
+            //Вопросы
+            if (this.state.startQuest) {
+
+                return (
+                    <div className={this.state.fadeRev ? 'fade reverse' : ''}
+                         onAnimationEnd={() => {
+
+                             if (this.state.fadeRev) {
+                                 this.setState({
+
+                                     fadeRev: false,
+                                     // fade: true,
+                                     currentQuestion: this.state.currentQuestion + 1,
+                                     styles:[
+                                         "card_option4",
+                                         "card_option4",
+                                         "card_option4",
+                                         "card_option4",
+                                     ]
+                                 })
+                             }
+                         }
+                         }
+                    >
+
+
+                        <div className="card">
+                            <div className="card-text3">
+                                <p>{"Вопрос " + (this.state.currentQuestion + 1)}: {this.state.sp.events[this.state.currentEvent]["Вопрос " + (this.state.currentQuestion + 1)]}</p>
+                            </div>
+                            <div className="card_options">
+                                <div id="Answer_1" className={this.state.styles[0]} onClick={() => this.check(1)}>
+                                    <div
+                                        className="inner">{this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + ",1"]}</div>
+                                </div>
+                                <div id="Answer_2" className={this.state.styles[1]} onClick={() => this.check(2)}>
+                                    <div
+                                        className="inner">{this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + ",2"]}</div>
+                                </div>
+                                <div id="Answer_3" className={this.state.styles[2]} onClick={() => this.check(3)}>
+                                    <div
+                                        className="inner">{this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + ",3"]}</div>
+                                </div>
+                                <div id="Answer_4" className={this.state.styles[3]} onClick={() => this.check(4)}>
+                                    <div
+                                        className="inner">{this.state.sp.events[this.state.currentEvent]["" + (this.state.currentQuestion + 1) + ",4"]}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                );
+            }
             //вывод событий если они есть и если пользователь проходил тест
             if (this.state.sp.events.length > 0 && Math.max(parseInt(localStorage.getItem("Nat")),
                 parseInt(localStorage.getItem("Hud")),
@@ -70,8 +161,7 @@ class Quest extends React.Component {
 
 
                             <div className="button_answer" onClick={() => {
-                                //this.setState({currentEvent: (this.state.currentEvent + 1) % this.state.sp.events.length});
-                                //TODO
+                                this.setState({startQuest: true});
                             }}>
                                 <div className="inner">Ответить на вопросы</div>
                             </div>
