@@ -272,23 +272,41 @@ body {
     background-color: #AA0000;
 }
 .card_option4_true {
-     /* Киберспорт */
-     position: relative;
-     width: 94%;
-     height: 25%;
-     left: 3%;
+    /* Киберспорт */
+    position: relative;
+    width: 94%;
+    height: 25%;
+    left: 3%;
 
-     text-align: center;
-     cursor: pointer;
-     font-family: Rubik, serif;
-     font-style: normal;
-     font-weight: normal;
-     font-size: 16px;
-     line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
 
     color: #FFFFFF;
     background-color: #00AA00;
- }
+}
+.card_option5_true {
+    /* Киберспорт */
+    position: relative;
+    width: 94%;
+    height: 25%;
+    left: 3%;
+
+    text-align: center;
+    cursor: pointer;
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+    background-color: #888888;
+}
 
 .card-text2 {
     /* Выбери увлечение, которое нравится больше всего */
@@ -392,6 +410,23 @@ body {
 
     color: #000000;
 }
+.registr_text_0 {
+     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+     position: absolute;
+     width: 80%;
+     left: 10%;
+     top: 60px;
+
+     font-family: Rubik, serif;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 16px;
+     line-height: 19px;
+
+     color: #000000;
+ }
 
 .card-start_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */

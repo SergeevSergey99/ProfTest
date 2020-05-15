@@ -62,8 +62,21 @@ class Quest extends React.Component {
                 this.state.sp.events[this.state.currentEvent]["Название"],
                 this.state.sum
                 );
-            document.location.href = "#/";
-            return (<div/>)
+            //document.location.href = "#/";
+            return (
+                <div>
+                    <div className="card_results">
+                        <div className="result_text">Задания</div>
+                        <div className="registr_text">Ваш результат {this.state.sum} из 5</div>
+                        <div className="registr_button" onClick={() => {
+                            document.location.href = "#/";
+                        }}>
+                            <div className="inner">На главную</div>
+                        </div>
+
+                    </div>
+                </div>
+            );
         }
         if (localStorage < 7 )
             document.location.href = "#/";
@@ -184,7 +197,7 @@ class Quest extends React.Component {
             // В противном случае ничего
             return (
                 <div>
-                    <div className="card_results">
+                    <div className="card">
                         <div className="result_text">Задания</div>
                         <div className="registr_text">Ничего</div>
                         <div className="registr_button" onClick={() => {
