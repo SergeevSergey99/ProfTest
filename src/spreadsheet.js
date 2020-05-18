@@ -265,7 +265,7 @@ class Spreadsheet {
                 // let i = 0;
                 this.events.forEach(
                     function (item, index, object) {
-                        if (row['Результаты'].includes(item['Название'])) {
+                        if (row['Результаты'].includes("|" + item['Название']  + "|:" )) {
                             object.splice(index, 1);
                         }
                     }
@@ -302,12 +302,12 @@ class Spreadsheet {
 
                 if (row['Телефон'] === phone && row['Школа'] === school) {
                     //Search = true;
-                    if (!String(row['Результаты']).includes(event_name)) {
+                    if (!String(row['Результаты']).includes("|" + event_name + "|:")) {
                         if (row['Результаты'] === undefined) {
                             row['Результаты'] = "";
                             row['Сумма'] = 0;
                         }
-                        row['Результаты'] += event_name + ":" + result + ";";
+                        row['Результаты'] += "|" + event_name + "|:" + result + ";";
                         row['Сумма'] = parseInt(row['Сумма']) + parseInt(result);
                         row.save();
                     }
