@@ -172,7 +172,7 @@ class Spreadsheet {
         rows.forEach(row => {
             if (row['Телефон'] === phone && row['Школа'] === school) {
                 let start = 0;
-                for (let j = -10; j < max; j++) {
+                for (let j = -14; j < max; j++) {
                     if (i + j > 0 && i + j - 1 < rows.length) {
                         if (max === 0)
                             max = j + 15;
