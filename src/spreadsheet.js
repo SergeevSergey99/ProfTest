@@ -168,11 +168,14 @@ class Spreadsheet {
             return b["Сумма"] - a["Сумма"];
         });
         let i = 1;
+        let max = 0;
         rows.forEach(row => {
             if (row['Телефон'] === phone && row['Школа'] === school) {
                 let start = 0;
-                for (let j = -10; j < 10; j++) {
+                for (let j = -10; j < max; j++) {
                     if (i + j > 0 && i + j - 1 < rows.length) {
+                        if (max === 0)
+                            max = j + 15;
                         if (j < 0)
                             start++;
                         this.events.push(rows[i + j - 1]);
