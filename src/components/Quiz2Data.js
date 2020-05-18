@@ -100,7 +100,7 @@ export const Quiz2Data = [
     },
     {
         id: 11,
-        name: "Кружек при зоопарке",
+        name: "Кружок при зоопарке",
         Hud: 0,
         Tech: 0,
         Num: 0,
@@ -235,7 +235,7 @@ export const Quiz2Data = [
     },
     {
         id: 26,
-        name: "Кружек в ботаническом саду",
+        name: "Кружок в ботаническом саду",
         Hud: 0,
         Tech: 0,
         Num: 0,
