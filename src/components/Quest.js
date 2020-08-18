@@ -8,12 +8,13 @@ class Quest extends React.Component {
         events: [],
         questions: [],
         Allquestions: [],
-        check: "false",
+        check: 0,
         done: "false",
         currentEvent: 0,
         startQuest: false,
         fadeRev: false,
         currentQuestion: 0,
+        eventsNums: [],
         styles: [
             "card_option4",
             "card_option4",
@@ -111,6 +112,32 @@ class Quest extends React.Component {
 
         if (localStorage < 7)
             document.location.href = "#/";
+
+        if (this.state.events.length > 0 && this.state.check === 0) {
+                var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+            //console.log(utc);
+            let i = 0;
+            let evenum = [];
+            let localevents = [];
+//            console.log(this.state.events);
+            this.state.events.forEach(event => {
+
+                let date = (event["eventDate"]).replace(/-/g, '/');
+
+                //console.log(date);
+                if (date < utc) {
+                    evenum.push(i);
+                    localevents.push(event);
+//                    this.state.events.splice(this.state.events.indexOf(event), 1);
+                }
+                i++;
+            });
+       //     console.log("evenum");
+         //   console.log(evenum);
+            this.setState({check: 1, eventsNums: evenum, events: localevents});
+            return (<div/>);
+        }
+
         //чтение данных из localStorage и получиние событий
         /* if (this.state.check === false) {
              this.state.sp.GetQestions(
@@ -209,7 +236,9 @@ class Quest extends React.Component {
 
                         <div className="button_answer" onClick={() => {
 
-                            let currEventnum = this.state.currentEvent + 1;
+                            let currEventnum = this.state.eventsNums[this.state.currentEvent] + 1;
+                            console.log(this.state.eventsNums);
+                            console.log(currEventnum);
                             this.setState({questions: []});
                             let arr = [];
                             this.state.Allquestions.forEach(question => {
