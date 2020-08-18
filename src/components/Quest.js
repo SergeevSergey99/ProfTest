@@ -84,37 +84,15 @@ class Quest extends React.Component {
     };
 
     render() {
+        console.log(this.state.events);
 //TODO отправка на сервер результатов
-        /*        if(this.state.currentQuestion > 4)
-                {
-                    this.state.sp.AddAnswer(
-                        localStorage.getItem("Phone"),
-                        localStorage.getItem("School"),
-                        this.state.sp.events[this.state.currentEvent]["Название"],
-                        this.state.sum
-                        );
-                    //document.location.href = "#/";
-                    return (
-                        <div>
-                            <div className="card_results">
-                                <div className="result_text">Задания</div>
-                                <div className="registr_text">Ваш результат {this.state.sum} из 5</div>
-                                <div className="registr_button" onClick={() => {
-                                    document.location.href = "#/";
-                                }}>
-                                    <div className="inner">На главную</div>
-                                </div>
 
-                            </div>
-                        </div>
-                    );
-                }*/
 
         if (localStorage < 7)
             document.location.href = "#/";
 
         if (this.state.events.length > 0 && this.state.check === 0) {
-                var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+            var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
             //console.log(utc);
             let i = 0;
             let evenum = [];
@@ -125,20 +103,20 @@ class Quest extends React.Component {
                 let date = (event["eventDate"]).replace(/-/g, '/');
 
                 //console.log(date);
-                if (date < utc) {
+                if (date < utc && !localStorage.getItem('answeredEvents').includes(event["id"])) {
                     evenum.push(i);
                     localevents.push(event);
 //                    this.state.events.splice(this.state.events.indexOf(event), 1);
                 }
                 i++;
             });
-       //     console.log("evenum");
-         //   console.log(evenum);
+            //     console.log("evenum");
+            //   console.log(evenum);
             this.setState({check: 1, eventsNums: evenum, events: localevents});
             return (<div/>);
         }
 
-        //чтение данных из localStorage и получиние событий
+//чтение данных из localStorage и получиние событий
         /* if (this.state.check === false) {
              this.state.sp.GetQestions(
                  localStorage.getItem("Phone"),
@@ -157,17 +135,46 @@ class Quest extends React.Component {
                     this.state.sp.checked = false;
                     this.setState({done: true});
                 }*/
-        //  }, 500);
+//  }, 500);
 
 
-        //if (this.state.sp.checked)
-        //{
-        //Вопросы
+//if (this.state.sp.checked)
+//{
+//Вопросы
         if (this.state.startQuest) {
 
             if (this.state.currentQuestion >= this.state.questions.length) {
-                this.setState({startQuest: false, currentQuestion: 0});
-                return (<div></div>);
+                //this.setState({startQuest: false, currentQuestion: 0});
+
+                let localansweredEvents = JSON.parse("[" + localStorage.getItem('answeredEvents') + "]");;
+                localansweredEvents.push(this.state.events[this.state.currentEvent]["id"]);
+                localStorage.setItem("Results", this.state.sum + parseInt(localStorage.getItem("Results")));
+                localStorage.setItem('answeredEvents', localansweredEvents);
+                axios.put('/api/students/' + localStorage.getItem('Id') + '/updateQuest/', {
+                    Results: localStorage.getItem("Results"),
+                    answeredEvents: localansweredEvents
+                }, {headers: {'Access-Control-Allow-Origin': true, "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"}})
+                    .then(res => console.log(res))
+                    .catch(err => console.log(err));
+
+                return (
+
+                    <div>
+                        <div className="card_results">
+                            <div className="result_text">Задания</div>
+                            <div className="registr_text">Ваш
+                                результат {this.state.sum} из {this.state.questions.length}</div>
+                            <div className="registr_button" onClick={() => {
+                                document.location.href = "#/";
+                            }}>
+                                <div className="inner">На главную</div>
+                            </div>
+
+                        </div>
+                    </div>
+                )
+                    ;
+
             }
 
             return (
@@ -217,7 +224,7 @@ class Quest extends React.Component {
 
             );
         }
-        //вывод событий если они есть и если пользователь проходил тест
+//вывод событий если они есть и если пользователь проходил тест
         if (this.state.events.length > 0 && Math.max(parseInt(localStorage.getItem("Nat")),
             parseInt(localStorage.getItem("Hud")),
             parseInt(localStorage.getItem("Tech")),
@@ -236,9 +243,9 @@ class Quest extends React.Component {
 
                         <div className="button_answer" onClick={() => {
 
-                            let currEventnum = this.state.eventsNums[this.state.currentEvent] + 1;
-                            console.log(this.state.eventsNums);
-                            console.log(currEventnum);
+                            let currEventnum = this.state.events[this.state.currentEvent]["id"];
+                            //console.log(this.state.eventsNums);
+                            //console.log(currEventnum);
                             this.setState({questions: []});
                             let arr = [];
                             this.state.Allquestions.forEach(question => {
@@ -267,7 +274,7 @@ class Quest extends React.Component {
                 </div>
             );
 
-        // В противном случае ничего
+// В противном случае ничего
         return (
             <div>
                 <div className="card">
@@ -282,8 +289,8 @@ class Quest extends React.Component {
                 </div>
             </div>
         );
-        //}
-        // Если данные еще не получены переодически обновляем страницу в ожидании
+//}
+// Если данные еще не получены переодически обновляем страницу в ожидании
         /*     setTimeout(() => {
                  if (this.state.time < 20)
                      this.setState({done: true, time: this.state.time + 1});
@@ -303,7 +310,7 @@ class Quest extends React.Component {
                 </div>
             </div>
         );
-*/
+        */
     }
 }
 

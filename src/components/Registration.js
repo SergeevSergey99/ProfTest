@@ -73,6 +73,8 @@ class Registration extends React.Component {
 //TODO проверка существования пользовантеля
                                     this.state.students.every(student => {
                                         if (student["phone"] === Phone && student["School"] === document.getElementById('schoolid').value) {
+                                            localStorage.setItem('Id', student["id"]);
+
                                             localStorage.setItem('Phone', student["phone"]);
                                             localStorage.setItem('School', student["School"]);
 
@@ -81,6 +83,8 @@ class Registration extends React.Component {
                                             localStorage.setItem('Num', student["WayNum"]);
                                             localStorage.setItem('Soc', student["WaySoc"]);
                                             localStorage.setItem('Tech', student["WayTech"]);
+
+                                            localStorage.setItem('Results', student["Results"]);
 
                                             localStorage.setItem('registeredEvents', student["registeredEvents"]);
                                             localStorage.setItem('answeredEvents', student["answeredEvents"]);
