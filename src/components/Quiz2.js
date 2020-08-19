@@ -1,8 +1,9 @@
 import React from "react";
 import {Quiz2Data} from "./Quiz2Data";
 import Results from "./Results";
-import Spreadsheet from '../spreadsheet';
+//import Spreadsheet from '../spreadsheet';
 import {Superstate} from "./Quiz";
+import axios from "axios";
 
 export var Superstate2 = {
     __Hud: 0,
@@ -11,7 +12,7 @@ export var Superstate2 = {
     __Soc: 0,
     __Nat: 0,
 };
-let sp = new Spreadsheet();
+//let sp = new Spreadsheet();
 
 class Quiz2 extends React.Component {
     state = {
@@ -158,7 +159,17 @@ class Quiz2 extends React.Component {
         Superstate2.__Soc += this.state._Soc;
         Superstate2.__Hud += this.state._Hud;
 
-        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech, Superstate2.__Num, Superstate2.__Soc);
+        axios.put('/api/students/' + localStorage.getItem('Id') + '/updateResults/', {
+            WayHud:Superstate2.__Hud,
+            WayNat:Superstate2.__Nat,
+            WayTech:Superstate2.__Tech,
+            WayNum:Superstate2.__Num,
+            WaySoc:Superstate2.__Soc
+        }, {headers: {'Access-Control-Allow-Origin': true, "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"}})
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+//        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech, Superstate2.__Num, Superstate2.__Soc);
 
         localStorage.setItem('Hud', Superstate2.__Hud.toString());
         localStorage.setItem('Nat', Superstate2.__Nat.toString());
