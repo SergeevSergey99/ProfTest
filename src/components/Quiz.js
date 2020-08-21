@@ -89,6 +89,32 @@ class Quiz extends React.Component {
 
         if (localStorage < 7)
             document.location.href = "#/";
+        if (
+            parseInt(localStorage.getItem('Hud')) +
+            parseInt(localStorage.getItem('Nat')) +
+            parseInt(localStorage.getItem('Num')) +
+            parseInt(localStorage.getItem('Soc')) +
+            parseInt(localStorage.getItem('Tech')) > 0
+        )
+            return (<div>
+
+                    <div className="card_results">
+                        <div className="result_text">
+                            <p><h2>Внимание</h2></p>
+                            <p><h4>Вы уже прошли тест</h4></p>
+                            <p>Вы можете посмотреть свои результаты в разделе "Результаты"</p>
+                            <p>Если Вы хотите пройти тест заново, свяжитесь с нами по номеру +7(***)-***-**-**</p>
+                        </div>
+                        <div className="registr_button" onClick={() => {
+                            document.location.href = "#/";
+                        }}>
+                            <div className="inner">
+                                На главную
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
         if (this.state.info) {
             return (
                 <div className={this.state.fadeRev ? 'fade reverse' : ''}

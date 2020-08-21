@@ -128,7 +128,7 @@ class Registration extends React.Component {
                         localStorage.clear();
                         document.location.href = "#/";
                     }}>
-                        <div className="inner">Выйти</div>
+                        <div className="inner">Выйти из аккаунта</div>
                     </div>
                     <div className="registr_button" onClick={() => {
                         document.location.href = "#/";

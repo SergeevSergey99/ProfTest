@@ -71,25 +71,31 @@ class Events extends React.Component {
                     parseInt(localStorage.getItem("Soc"))
                 ) > 0) {
 
+                    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    let eventDate  = this.state.events[this.state.currentEvent]["eventDate"].replace(/-/g, '/');
                     return (
                         <div>
                             <div className="card">
                                 <div className="result_text">События</div>
                                 <div className="registr_text">
-                                    <p>Название: {this.state.events[this.state.currentEvent]["title"]}</p>
-                                    <p>Описание: {this.state.events[this.state.currentEvent]["description"]}</p>
-                                    <p>Дата: {this.state.events[this.state.currentEvent]["eventDate"]}</p>
-                                    <p>Место: {this.state.events[this.state.currentEvent]["eventLocation"]}</p>
-                                    <p>Время: {this.state.events[this.state.currentEvent]["eventTime"]}</p>
+                                    <p><b>Название:</b> {this.state.events[this.state.currentEvent]["title"]}</p>
+                                    <p><b>Описание:</b> {this.state.events[this.state.currentEvent]["description"]}</p>
+                                    <p><b>Дата:</b> {new Date(eventDate).toLocaleDateString("ru", options)}</p>
+                                    <p><b>Время:</b> {this.state.events[this.state.currentEvent]["eventTime"]}</p>
+                                    <p><b>Место:</b> {this.state.events[this.state.currentEvent]["eventLocation"]}</p>
+                                </div>
+                                <div className="registr_text_count">
                                     <p>{this.state.currentEvent + 1} из {enventslen}</p>
                                 </div>
-                                <div className="registr_button_exit" onClick={() => {
-                                    // do {
+                                <div className="registr_button_registr" onClick={() => {
                                     this.setState({currentEvent: (this.state.currentEvent + 1) % enventslen});
-                                    //}while(localStorage.getItem("registeredEvents").includes(this.state.currentEvent+1));
                                 }}>
-                                    <div className="inner">Следующее</div>
-                                </div>
+                                    <div className="inner">Записаться</div>
+                                </div><div className="registr_button_next" onClick={() => {
+                                this.setState({currentEvent: (this.state.currentEvent + 1) % enventslen});
+                            }}>
+                                <div className="inner">Следующее</div>
+                            </div>
                                 <div className="registr_button" onClick={() => {
                                     document.location.href = "#/";
                                 }}>
