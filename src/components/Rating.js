@@ -33,7 +33,6 @@ class Rating extends React.Component {
                     return b["Results"] - a["Results"];
                 });
 
-                console.log("Sort");
                 console.log(res.data);
                 let i = 0;
                 res.data.every(student => {

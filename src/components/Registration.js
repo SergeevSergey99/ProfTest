@@ -1,19 +1,16 @@
 import React from "react";
 import axios from "axios";
+import sha256 from 'js-sha256';
 
-//import Spreadsheet from '../spreadsheet';
 
 class Registration extends React.Component {
     state = {
-//        sp: new Spreadsheet(),
         students: [],
         updateState: false
     };
     loadQuiz = () => {
         this.setState(() => {
             return {
-                // sp: new Spreadsheet(),
-                // check: false,
 
             };
         });
@@ -32,19 +29,7 @@ class Registration extends React.Component {
     }
 
     render() {
-        /*if (localStorage.length >= 7) {
-            let _student = new Spreadsheet();
-            _student.done = true;
-            _student.student['Телефон'] = parseInt(localStorage.getItem('Phone'));
-            _student.student['Школа'] = parseInt(localStorage.getItem('School'));
-            _student.student['Х'] = parseInt(localStorage.getItem('Hud'));
-            _student.student['Т'] = parseInt(localStorage.getItem('Tech'));
-            _student.student['Ц'] = parseInt(localStorage.getItem('Num'));
-            _student.student['Е'] = parseInt(localStorage.getItem('Nat'));
-            _student.student['С'] = parseInt(localStorage.getItem('Soc'));
-            this.setState({check: true, done: true, sp: _student});
-        }*/
-//        if (!this.state.check)
+
         if (localStorage.length < 7)
             return (
                 <div>
@@ -53,28 +38,26 @@ class Registration extends React.Component {
                         <div className="registr_title">Регистрация</div>
                         <div className="registr_text">Расписание событий по профориентации для школьников
                             Адмиралтейского
-                            района будут доступны после регистрации. Для этого введите свой номер телефона и укажите
-                            номер
-                            школы.
+                            района будут доступны после регистрации. Для этого введите свой номер телефона и укажите выданный вам
+                            пароль.
                         </div>
                         <input id="phoneid" className="registr_field1"
                                placeholder="+7 (900) 123-45-67"
                                pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"/>
-                        <input id="schoolid" className="registr_field2" placeholder="Номер школы"/>
+                        <input id="passid" className="registr_field2" placeholder="Пароль"/>
 
                         <div className="registr_button" onClick={() => {
 
                             let Phone = document.getElementById('phoneid').value.replace(/[^+\d]/g, '');
                             if (Phone.length === 11) {
                                 Phone = "7" + Phone.substring(1);
-                                if (document.getElementById('phoneid').value !== '' && document.getElementById('schoolid').value !== '') {
-                                    // this.state.sp.AddRowToSheet(Phone, document.getElementById('school').value);
+                                if (document.getElementById('passid').value !== '' && document.getElementById('passid').value !== '') {
 
-//TODO проверка существования пользовантеля
                                     this.state.students.every(student => {
-                                        if (student["phone"] === Phone && student["School"] === document.getElementById('schoolid').value) {
+                                        if (student["phone"] === Phone && student["hashPass"] === sha256(document.getElementById('passid').value)) {
                                             localStorage.setItem('Id', student["id"]);
 
+//                                            console.log(sha256('20173'));
                                             localStorage.setItem('Phone', student["phone"]);
                                             localStorage.setItem('School', student["School"]);
 
@@ -85,6 +68,7 @@ class Registration extends React.Component {
                                             localStorage.setItem('Tech', student["WayTech"]);
 
                                             localStorage.setItem('Results', student["Results"]);
+                                            localStorage.setItem('MaxPossibleResults', student["MaxPossibleResults"]);
 
                                             localStorage.setItem('registeredEvents', student["registeredEvents"]);
                                             localStorage.setItem('answeredEvents', student["answeredEvents"]);
@@ -103,7 +87,7 @@ class Registration extends React.Component {
                                 }
                             }
                                 document.getElementById('phoneid').value = "";
-                                document.getElementById('schoolid').value = "";
+                                document.getElementById('passid').value = "";
                                 this.setState({updateState: this.state.updateState ^ true});
 
                         }}>

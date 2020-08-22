@@ -8,7 +8,8 @@ class Events extends React.Component {
         eventsNums: [],
         check: 0,
         done: "false",
-        currentEvent: 0
+        currentEvent: 0,
+        isRegistered: -1
     };
 
     loadQuiz = () => {
@@ -20,6 +21,7 @@ class Events extends React.Component {
     componentDidMount() {
         axios.get('/api/events/', {headers: {'Access-Control-Allow-Origin': true}})
             .then(res => {
+
                 this.setState({
                     events: res.data
                 });
@@ -36,6 +38,23 @@ class Events extends React.Component {
         if (localStorage < 7)
             document.location.href = "#/";
 
+        if(this.state.isRegistered !== -1)
+        {
+            return (
+                <div>
+                    <div className="card_results">
+                        <div className="result_text">Успешно!</div>
+                        <div className="registr_text"><b>Вы записались на событие:</b> {this.state.events[this.state.isRegistered]["title"]} </div>
+                        <div className="registr_button" onClick={() => {
+                            document.location.href = "#/";
+                        }}>
+                            <div className="inner">На главную</div>
+                        </div>
+
+                    </div>
+                </div>
+            );
+        }
         if (this.state.events.length > 0 && this.state.check === 0) {
             var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
             //console.log(utc);
@@ -47,7 +66,7 @@ class Events extends React.Component {
 
                 let date = (event["eventDate"]).replace(/-/g, '/');
                 //console.log(date);
-                if (date >= utc) {
+                if (date >= utc && !JSON.parse("[" + localStorage.getItem('registeredEvents') + "]").includes(event['id'])) {
 
                     evenum.push(i);
                     localevents.push(event);
@@ -88,11 +107,23 @@ class Events extends React.Component {
                                     <p>{this.state.currentEvent + 1} из {enventslen}</p>
                                 </div>
                                 <div className="registr_button_registr" onClick={() => {
-                                    this.setState({currentEvent: (this.state.currentEvent + 1) % enventslen});
+                                    let regevnts = JSON.parse("[" + localStorage.getItem('registeredEvents') + "]");
+                                    regevnts.push(this.state.events[this.state.currentEvent]["id"]);
+
+                                    localStorage.setItem('registeredEvents', regevnts);
+
+                                    axios.put('/api/students/' + localStorage.getItem('Id') + '/updateRegister/', {
+                                        registeredEvents: regevnts
+                                    }, {headers: {'Access-Control-Allow-Origin': true, "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"}})
+                                        .then(res => console.log(res))
+                                        .catch(err => console.log(err));
+                                    this.setState({isRegistered: this.state.currentEvent, currentEvent: (this.state.currentEvent + 1) % enventslen});
+
                                 }}>
                                     <div className="inner">Записаться</div>
                                 </div><div className="registr_button_next" onClick={() => {
                                 this.setState({currentEvent: (this.state.currentEvent + 1) % enventslen});
+
                             }}>
                                 <div className="inner">Следующее</div>
                             </div>

@@ -103,7 +103,7 @@ class Quest extends React.Component {
                 let date = (event["eventDate"]).replace(/-/g, '/');
 
                 //console.log(date);
-                if (date < utc && !localStorage.getItem('answeredEvents').includes(event["id"])) {
+                if (date < utc && !localStorage.getItem('answeredEvents').includes(event["id"]) && localStorage.getItem('registeredEvents').includes(event["id"])) {
                     evenum.push(i);
                     localevents.push(event);
 //                    this.state.events.splice(this.state.events.indexOf(event), 1);
@@ -152,7 +152,8 @@ class Quest extends React.Component {
                 localStorage.setItem('answeredEvents', localansweredEvents);
                 axios.put('/api/students/' + localStorage.getItem('Id') + '/updateQuest/', {
                     Results: localStorage.getItem("Results"),
-                    answeredEvents: localansweredEvents
+                    answeredEvents: localansweredEvents,
+                    MaxPossibleResults: parseInt(localStorage.getItem('MaxPossibleResults')) + this.state.questions.length
                 }, {headers: {'Access-Control-Allow-Origin': true, "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"}})
                     .then(res => console.log(res))
                     .catch(err => console.log(err));
