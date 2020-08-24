@@ -5,6 +5,7 @@ import Results from "./Results";
 import StartPage from "./StartPage";
 import Registration from "./Registration";
 import Events from "./Events";
+import MyEvents from "./MyEvents";
 import Quest from "./Quest";
 import Rating from "./Rating";
 
@@ -15,6 +16,7 @@ const Main = () => (
             <Route path='/Registration' component={Registration}/>
             <Route path='/Rating' component={Rating}/>
             <Route path='/Events' component={Events}/>
+            <Route path='/MyEvents' component={MyEvents}/>
             <Route path='/Quiz' component={Quiz}/>
             <Route path='/Quest' component={Quest}/>
             <Route path='/Results' component={Results}/>
