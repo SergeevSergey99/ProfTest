@@ -90,6 +90,7 @@ class Events extends React.Component {
                                     <p><b>Дата:</b> {new Date(eventDate).toLocaleDateString("ru", options)}</p>
                                     <p><b>Время:</b> {this.state.events[this.state.currentEvent]["eventTime"]}</p>
                                     <p><b>Место:</b> {this.state.events[this.state.currentEvent]["eventLocation"]}</p>
+                                    <p><b>Записалось:</b> {this.state.events[this.state.currentEvent]["registeredStudents"].length} из {this.state.events[this.state.currentEvent]["maxCountOfStudents"]} возможных</p>
                                 </div>
                                 <div className="registr_text_count">
                                     <p>{this.state.currentEvent + 1} из {enventslen}</p>
