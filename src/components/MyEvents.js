@@ -84,12 +84,17 @@ class Events extends React.Component {
                         <div>
                             <div className="card">
                                 <div className="result_text">События</div>
-                                <div className="registr_text">
+                                <div className="Event_text">
                                     <p><b>Название:</b> {this.state.events[this.state.currentEvent]["title"]}</p>
                                     <p><b>Описание:</b> {this.state.events[this.state.currentEvent]["description"]}</p>
                                     <p><b>Дата:</b> {new Date(eventDate).toLocaleDateString("ru", options)}</p>
                                     <p><b>Время:</b> {this.state.events[this.state.currentEvent]["eventTime"]}</p>
-                                    <p><b>Место:</b> {this.state.events[this.state.currentEvent]["eventLocation"]}</p>
+                                    <p style={{color:this.state.events[this.state.currentEvent]["eventLocationRef"].length >= 5?"blue":"black"}} onClick={() => {
+                                        if (this.state.events[this.state.currentEvent]["eventLocationRef"].length >= 5) {
+                                            window.open(this.state.events[this.state.currentEvent]["eventLocationRef"], "_blank")
+                                        }
+                                    }}><b>Место:</b> {this.state.events[this.state.currentEvent]["eventLocation"]}</p>
+                                    <p><b>Записалось:</b> {this.state.events[this.state.currentEvent]["registeredStudents"].length} из {this.state.events[this.state.currentEvent]["maxCountOfStudents"]} возможных</p>
                                 </div>
                                 <div className="registr_text_count">
                                     <p>{this.state.currentEvent + 1} из {enventslen}</p>

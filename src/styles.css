@@ -89,7 +89,37 @@
     background: #FFFFFF;
     border-radius: 8px;
 }
+.img_logo {
 
+    position: relative;
+
+    top: 2rem;
+    margin: auto;
+    left: 10%;
+    width: 80%;
+    max-width: 44em;
+
+    border-radius: 8px;
+}
+.img_rec {
+
+     position: absolute;
+
+     top: -2rem;
+     right: -1rem;
+     width: 6rem;
+ }
+.text{
+    position: relative;
+
+    top: 1rem;
+    width: 90%;
+    height: 3.5rem;
+    margin: auto;
+
+    background: #F9F9F9;
+    border-radius: 8px;
+}
 .card-text {
 
     position: relative;
@@ -131,6 +161,8 @@
 
 }
 
+
+
 #Rectangle-1 {
 
     width: 100%;
@@ -164,6 +196,22 @@
     background: #DDDDDD;
 }
 
+.mini_logo1 {
+
+    position: absolute;
+
+    top: 0.3rem;
+    left: 2em;
+    height: 3.8rem;
+}
+.mini_logo2 {
+
+    position: absolute;
+
+    top: 0.3rem;
+    left: 6.5em;
+    height: 3.8rem;
+}
 .fade {
     animation: fade-in-keyframes 1s;
 }
@@ -392,7 +440,48 @@ body {
 
     color: #000000;
 }
+div{
+    /**
+             * Для эксплорера
+             */
+    -ms-user-select: none;
 
+    /**
+     * Для мозилы
+     */
+    -moz-user-select: none;
+
+    /**
+     * Для конкверора
+     */
+    -khtml-user-select: none;
+
+    /**
+     * Для Сафари и Хрома
+     */
+    -webkit-user-select: none;
+}
+div{
+    /**
+             * Для эксплорера
+             */
+    -ms-user-select: none;
+
+    /**
+     * Для мозилы
+     */
+    -moz-user-select: none;
+
+    /**
+     * Для конкверора
+     */
+    -khtml-user-select: none;
+
+    /**
+     * Для Сафари и Хрома
+     */
+    -webkit-user-select: none;
+}
 .registr_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
 
@@ -401,6 +490,23 @@ body {
     width: 80%;
     left: 10%;
     top: 20%;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+.Event_text {
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 10%;
 
     font-family: Rubik, serif;
     font-style: normal;
@@ -445,6 +551,23 @@ body {
 
      color: #000000;
  }
+.reiting{
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+    position: absolute;
+    width: 94%;
+    left: 3%;
+    top: 60px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
 
 .card-start_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */

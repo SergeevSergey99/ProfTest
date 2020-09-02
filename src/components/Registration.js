@@ -58,6 +58,9 @@ class Registration extends React.Component {
                                             localStorage.setItem('Id', student["id"]);
 
 //                                            console.log(sha256('20173'));
+                                            localStorage.setItem('firstName', student["firstName"]);
+                                            localStorage.setItem('lastName', student["lastName"]);
+
                                             localStorage.setItem('Phone', student["phone"]);
                                             localStorage.setItem('School', student["School"]);
 
@@ -99,12 +102,13 @@ class Registration extends React.Component {
                 </div>
             );
 
-
         return (
             <div>
                 <div className="card">
                     <div className="registr_title">Вы авторизованы</div>
                     <div className="registr_text">
+                        <p>Имя: {localStorage.getItem('firsName')}</p>
+                        <p>Фамилия: {localStorage.getItem('lastName')}</p>
                         <p>Номер: {localStorage.getItem('Phone')}</p>
                         <p>Школа: {localStorage.getItem('School')}</p>
                     </div>

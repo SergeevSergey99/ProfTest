@@ -52,7 +52,6 @@
     "type": "git",
     "url": "git+https://github.com/SergeevSergey99/quiz.git"
   },
-  "proxy": "http://127.0.0.1:8000",
   "bugs": {
     "url": "https://github.com/SergeevSergey99/ProfTest/issues"
   }
