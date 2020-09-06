@@ -5,6 +5,7 @@ class Quest extends React.Component {
     state = {
         events: [],
         questions: [],
+        answeredQuestions: [],
         Allquestions: [],
         check: 0,
         done: "false",
@@ -52,6 +53,7 @@ class Quest extends React.Component {
             if (parseInt(my_index) === parseInt(this.state.questions[this.state.currentQuestion]["answer"])) {
                 let st = this.state.styles;
                 st[my_index - 1] = "card_option4_true";
+                this.state.answeredQuestions.push(this.state.questions[this.state.currentQuestion]["id"]);
                 this.setState({styles: st, fadeRev: true, sum: this.state.sum + 1});
                 console.log("++++");
             } else {
@@ -59,8 +61,8 @@ class Quest extends React.Component {
                 st[my_index - 1] = "card_option4_wrong";
                 this.setState({styles: st, fadeRev: true});
             }
-            console.log("sum: " + (this.state.sum));
-            console.log("right: " + this.state.questions[this.state.currentQuestion]["answer"]);
+            //console.log("sum: " + (this.state.sum));
+            //console.log("right: " + this.state.questions[this.state.currentQuestion]["answer"]);
 
         }
     };
@@ -89,13 +91,17 @@ class Quest extends React.Component {
         if (this.state.startQuest) {
             if (this.state.currentQuestion >= this.state.questions.length) {
                 let localansweredEvents = JSON.parse("[" + localStorage.getItem('answeredEvents') + "]");
+                let localansweredQuestions = JSON.parse("[" + localStorage.getItem('answeredQuestions') + "]").concat(this.state.answeredQuestions).unique();
+
                 localansweredEvents.push(this.state.events[this.state.currentEvent]["id"]);
                 localStorage.setItem("Results", this.state.sum + parseInt(localStorage.getItem("Results")));
                 localStorage.setItem('answeredEvents', localansweredEvents);
+                localStorage.setItem('answeredQuestions', localansweredQuestions);
                 axios.put('http://127.0.0.1:8000/api/students/' + localStorage.getItem('Id') + '/updateQuest/', {
                     Results: parseInt(localStorage.getItem("Results")),
                     MaxPossibleResults: parseInt(localStorage.getItem('MaxPossibleResults')) + this.state.questions.length,
-                    answeredEvents: localansweredEvents
+                    answeredEvents: localansweredEvents,
+                    answeredQuestions: localansweredQuestions
                 })
                     .then(res => console.log(res))
                     .catch(err => console.log(err));

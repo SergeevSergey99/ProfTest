@@ -75,6 +75,7 @@ class Registration extends React.Component {
 
                                             localStorage.setItem('registeredEvents', student["registeredEvents"]);
                                             localStorage.setItem('answeredEvents', student["answeredEvents"]);
+                                            localStorage.setItem('answeredQuestions', student["answeredQuestions"]);
 
                                             this.setState({updateState: true});
                                             return false;
