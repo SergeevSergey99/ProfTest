@@ -19,7 +19,7 @@ class Events extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/events/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/events/')
             .then(res => {
                 //var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
                 //event["isDraft"]

@@ -22,7 +22,7 @@ class Rating extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/students/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/students/')
             .then(res => {
 
                 res.data.sort(function (a, b) {

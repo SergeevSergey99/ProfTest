@@ -31,14 +31,14 @@ class Quest extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/events/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/events/')
             .then(res => {
                 this.setState({
                     events: res.data
                 });
             });
 
-        axios.get('/api/questions/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/questions/')
             .then(res => {
                 this.setState({
 

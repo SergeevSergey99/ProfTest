@@ -78,6 +78,37 @@
     padding-top: 20px;
     padding-left: 10px;
 }
+.results_charts {
+
+    position: relative;
+    top: 50px;
+    left: 3%;
+    width: 94%;
+
+}
+.results_radar {
+
+    position: absolute;
+    width: 44%;
+    left: 3%;
+    height: 64px;
+    top: 455px;
+
+    cursor: pointer;
+    background: #D4D4D4;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    text-align: center;
+
+    color: #000000;
+
+}
 
 .img {
     position: absolute;
@@ -409,6 +440,28 @@ body {
 
     cursor: pointer;
     background: #EEEEEE;
+    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    text-align: center;
+
+    color: #000000;
+}
+.button_next_prog {
+    /* Rectangle 4 */
+    position: absolute;
+    width: 44%;
+    left: 53%;
+    height: 64px;
+    top: 455px;
+
+    cursor: pointer;
+    background: #D4D4D4;
     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 

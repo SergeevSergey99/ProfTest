@@ -17,7 +17,7 @@ class Registration extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/students/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/students/')
             .then(res => {
                 this.setState({
                     students: res.data
@@ -108,7 +108,7 @@ class Registration extends React.Component {
                 <div className="card">
                     <div className="registr_title">Вы авторизованы</div>
                     <div className="registr_text">
-                        <p>Имя: {localStorage.getItem('firsName')}</p>
+                        <p>Имя: {localStorage.getItem('firstName')}</p>
                         <p>Фамилия: {localStorage.getItem('lastName')}</p>
                         <p>Номер: {localStorage.getItem('Phone')}</p>
                         <p>Школа: {localStorage.getItem('School')}</p>
