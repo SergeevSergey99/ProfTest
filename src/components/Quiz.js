@@ -186,12 +186,14 @@ class Quiz extends React.Component {
                         </div>
                         <div className="grade">
                             <div className="stars">
+                                <div className="inner">
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={5}
                                     value={rating}
                                     onStarClick={this.onStarClick.bind(this)}
                                 />
+                                </div>
                             </div>
                         </div>
                     </div>

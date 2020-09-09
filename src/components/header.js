@@ -17,7 +17,6 @@ class Header extends React.Component {
                 </a>
                 <div id="Rectangle-1"></div>
                 <div id="Ellipse-1"></div>
-                <div id="Ellipse-2"></div>
             </div>
         );
     }

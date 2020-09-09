@@ -98,8 +98,8 @@ class Quiz2 extends React.Component {
                 >
                     <div className="card_results">
                         <div className="result_text">
-                            <p><h2>Задание</h2></p>
-                            <p><h4>Далее будут представлены списки кружков</h4></p>
+                            <h2>Задание</h2>
+                            <h4>Далее будут представлены списки кружков</h4>
                             <p>Выберите наиболее интересный из представленных</p>
                         </div>
                         <div className="registr_button_exit" onClick={() => {

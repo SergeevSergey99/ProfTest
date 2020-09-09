@@ -16,15 +16,21 @@ class Registration extends React.Component {
         });
     };
 
-    componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/students/')
-            .then(res => {
-                this.setState({
-                    students: res.data
+    GetData = () => {
+            axios.get('http://127.0.0.1:8000/api/students/')
+                .then(res => {
+                    this.setState({
+                        students: res.data
+                    });
+
+                    console.log(res.data);
                 });
 
-                console.log(res.data);
-            });
+    };
+
+    componentDidMount() {
+
+        this.GetData();
         this.loadQuiz();
     }
 
