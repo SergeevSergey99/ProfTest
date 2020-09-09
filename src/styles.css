@@ -58,7 +58,7 @@
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(0.9em + 1vw);
     line-height: 31px;
 
     color: #000000;
@@ -69,11 +69,12 @@
 
     color: #FFFFFF;
     position: relative;
-    top: 50px;
+    top: 2rem;
     left: 3%;
     border-radius: 0.4em;
-    height: 40px;
+    height: 2rem;
     border: #EEEEEE;
+    font-size: calc(0.4em + 1vw);
 
     padding-top: 20px;
     padding-left: 10px;
@@ -102,7 +103,7 @@
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
     line-height: 31px;
     text-align: center;
 
@@ -446,7 +447,7 @@ body {
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
     line-height: 31px;
     text-align: center;
 
@@ -468,7 +469,7 @@ body {
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
     line-height: 31px;
     text-align: center;
 
@@ -641,8 +642,12 @@ div{
 }
 
 .inner {
-    position: relative;
-    top: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
 }
 .registr_button {
     /* Rectangle 4 */
