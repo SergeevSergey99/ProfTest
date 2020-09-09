@@ -17,7 +17,7 @@ class Results extends React.Component {
         fade: false,
         fadeRev: false,
 
-        isRadar:true,
+        isRadar:false,
 
         isCharts: false,
         Graph_Dates: [],
