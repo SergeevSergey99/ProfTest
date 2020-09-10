@@ -10,7 +10,7 @@ import {HashRouter} from 'react-router-dom';
 const particleOpt = {
     particles: {
         number: {
-            value: 250,
+            value: 150,
             density: {
                 enable: true,
                 value_area: 1000

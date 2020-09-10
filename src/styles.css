@@ -82,7 +82,7 @@
 .results_charts {
 
     position: relative;
-    top: 50px;
+    top: 20px;
     left: 3%;
     width: 94%;
 
@@ -604,6 +604,9 @@ div{
 
      color: #000000;
  }
+.automargin{
+    margin: auto;
+}
 .reiting{
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
 
@@ -616,7 +619,7 @@ div{
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: calc(0.3em + 1vw);
     line-height: 19px;
 
     color: #000000;

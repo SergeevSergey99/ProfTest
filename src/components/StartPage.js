@@ -15,37 +15,35 @@ class StartPage extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/students/')
-            .then(res => {
+        if (localStorage.length >= 7)
+            axios.get('http://127.0.0.1:8000/api/students/' + parseInt(localStorage.getItem('Id')))
+                .then(res => {
 
-                res.data.every(student => {
-                    if (parseInt(student["id"]) === parseInt(localStorage.getItem('Id'))) {
+                    console.log(res.data);
+                    let student = res.data;
 
-                        localStorage.setItem('firstName', student["firstName"]);
-                        localStorage.setItem('lastName', student["lastName"]);
+                    localStorage.setItem('firstName', student["firstName"]);
+                    localStorage.setItem('lastName', student["lastName"]);
 
-                        localStorage.setItem('Phone', student["phone"]);
-                        localStorage.setItem('School', student["School"]);
+                    localStorage.setItem('Phone', student["phone"]);
+                    localStorage.setItem('School', student["School"]);
 
-                        localStorage.setItem('Hud', student["WayHud"]);
-                        localStorage.setItem('Nat', student["WayNat"]);
-                        localStorage.setItem('Num', student["WayNum"]);
-                        localStorage.setItem('Soc', student["WaySoc"]);
-                        localStorage.setItem('Tech', student["WayTech"]);
+                    localStorage.setItem('Hud', student["WayHud"]);
+                    localStorage.setItem('Nat', student["WayNat"]);
+                    localStorage.setItem('Num', student["WayNum"]);
+                    localStorage.setItem('Soc', student["WaySoc"]);
+                    localStorage.setItem('Tech', student["WayTech"]);
 
-                        localStorage.setItem('Results', student["Results"]);
-                        localStorage.setItem('MaxPossibleResults', student["MaxPossibleResults"]);
+                    localStorage.setItem('Results', student["Results"]);
+                    localStorage.setItem('MaxPossibleResults', student["MaxPossibleResults"]);
 
-                        localStorage.setItem('registeredEvents', student["registeredEvents"]);
-                        localStorage.setItem('answeredEvents', student["answeredEvents"]);
+                    localStorage.setItem('registeredEvents', student["registeredEvents"]);
+                    localStorage.setItem('answeredEvents', student["answeredEvents"]);
 
-                        this.setState({updateState: true});
-                        return false;
-                    }
-                    return true;
+                    this.setState({updateState: true});
+
+
                 });
-
-            });
         this.loadQuiz();
     }
 
@@ -134,9 +132,9 @@ class StartPage extends React.Component {
             <div>
 
                 <div className="card_results">
-                <div className="img_logo">
-                    <img width={"80%"} src={logo} alt={"logo"}/>
-                </div>
+                    <div className="img_logo">
+                        <img width={"80%"} src={logo} alt={"logo"}/>
+                    </div>
                     <div className="card-start_text" onClick={() => {
                         document.location.href = "#/Registration";
                     }}>

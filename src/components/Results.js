@@ -252,7 +252,7 @@ class Results extends React.Component {
 
             return (
                 <div className="card_results">
-                    <div className="result_text">Результаты изменения интересов:</div>
+                    <div className="result_text">Результаты изменения интересов при посещении событий:</div>
                     <div className="results_charts">
                         <Line data={data} width={100}
                               height={330} options={{maintainAspectRatio: false}}/>
@@ -303,7 +303,7 @@ class Results extends React.Component {
                         <div className="inner">Изменить вид</div>
                     </div>
                     {
-                        localStorage.getItem('answeredEvents').length > 0 ?
+                        localStorage.getItem('answeredEvents').length > 2 ?
                             <div className="button_next_prog" onClick={() => {
                                 this.setState({isCharts: true})
                             }}>
@@ -355,7 +355,7 @@ class Results extends React.Component {
                     <div className="inner">Изменить вид</div>
                 </div>
                 {
-                    localStorage.getItem('answeredEvents').length > 0 ?
+                    localStorage.getItem('answeredEvents').length > 2 ?
                         <div className="button_next_prog" onClick={() => {
                             this.setState({isCharts: true})
                         }}>

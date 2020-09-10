@@ -91,7 +91,7 @@ class Rating extends React.Component {
                     <div className="card">
                         <div className="result_text">Рейтинг</div>
                         <div className="reiting">
-                            <table>
+                            <table className="automargin">
                                 <tbody>
                                 <tr>
                                     <td>Место</td>
