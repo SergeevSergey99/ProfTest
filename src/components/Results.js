@@ -17,7 +17,7 @@ class Results extends React.Component {
         fade: false,
         fadeRev: false,
 
-        isRadar:false,
+        isRadar: false,
 
         isCharts: false,
         Graph_Dates: [],
@@ -92,14 +92,26 @@ class Results extends React.Component {
 
 
                     });
-/*                    console.log(this.state.Graph_Dates);
-                    console.log(this.state.Graph_Hud);
-                    console.log(this.state.Graph_Tech);
-                    console.log(this.state.Graph_Num);
-                    console.log(this.state.Graph_Soc);
-                    console.log(this.state.Graph_Nat);*/
+                    /*                    console.log(this.state.Graph_Dates);
+                                        console.log(this.state.Graph_Hud);
+                                        console.log(this.state.Graph_Tech);
+                                        console.log(this.state.Graph_Num);
+                                        console.log(this.state.Graph_Soc);
+                                        console.log(this.state.Graph_Nat);*/
                     this.loadQuiz();
                 });
+        }
+        if (localStorage.length >= 5 && !this.state.stop) {
+
+
+            this.setState({
+                _Hud: parseInt(localStorage.getItem('Hud')),
+                _Tech: parseInt(localStorage.getItem('Tech')),
+                _Num: parseInt(localStorage.getItem('Num')),
+                _Nat: parseInt(localStorage.getItem('Nat')),
+                _Soc: parseInt(localStorage.getItem('Soc')),
+                stop: true
+            });
         }
         this.loadQuiz();
     }
@@ -109,16 +121,6 @@ class Results extends React.Component {
         if (localStorage < 7)
             document.location.href = "#/";
 
-        if (localStorage.length >= 5 && !this.state.stop) {
-            this.setState({
-                _Hud: parseInt(localStorage.getItem('Hud')),
-                _Tech: parseInt(localStorage.getItem('Tech')),
-                _Num: parseInt(localStorage.getItem('Num')),
-                _Nat: parseInt(localStorage.getItem('Nat')),
-                _Soc: parseInt(localStorage.getItem('Soc')),
-                stop: true
-            })
-        }
 
         let sum = this.state._Soc + this.state._Nat + this.state._Tech + this.state._Hud + this.state._Num;
         let max = Math.max(this.state._Soc, this.state._Nat, this.state._Tech, this.state._Hud, this.state._Num);
@@ -127,13 +129,13 @@ class Results extends React.Component {
 
             sum = 1;
             max = 1;
-        } else {
+        }/* else {
             localStorage.setItem('Hud', this.state._Hud.toString());
             localStorage.setItem('Nat', this.state._Nat.toString());
             localStorage.setItem('Num', this.state._Num.toString());
             localStorage.setItem('Soc', this.state._Soc.toString());
             localStorage.setItem('Tech', this.state._Tech.toString());
-        }
+        }*/
 
         if (this.state.isCharts) {
 
@@ -272,9 +274,9 @@ class Results extends React.Component {
                 </div>
             );
         }
-        if (this.state.isRadar){
+        if (this.state.isRadar) {
             let data = {
-                labels: ['Техническое', 'Естественно-научное',  'Артистическое', 'Цифровое', 'Социальное'],
+                labels: ['Техническое', 'Естественно-научное', 'Артистическое', 'Цифровое', 'Социальное'],
                 datasets: [
                     {
                         label: 'Результаты о направлениям',
@@ -295,7 +297,7 @@ class Results extends React.Component {
 
                     <div className="results_charts">
                         <Radar data={data} width={100}
-                              height={330} options={{maintainAspectRatio: false}}/>
+                               height={330} options={{maintainAspectRatio: false}}/>
                     </div>
                     <div className="results_radar" onClick={() => {
                         this.setState({isRadar: false})

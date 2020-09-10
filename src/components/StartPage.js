@@ -138,7 +138,7 @@ class StartPage extends React.Component {
                     <div className="card-start_text" onClick={() => {
                         document.location.href = "#/Registration";
                     }}>
-
+                        <p/>
                         <div className="text">
                             <div className="inner">Регистрация</div>
                         </div>
