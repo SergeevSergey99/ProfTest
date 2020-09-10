@@ -32,7 +32,9 @@ class Events extends React.Component {
 
                     let date = (event["eventDate"]).replace(/-/g, '/');
                     //console.log(date);
-                    if (date >= utc && !event["isDraft"] && !JSON.parse("[" + localStorage.getItem('registeredEvents') + "]").includes(event['id'])) {
+                    if (date >= utc && !event["isDraft"]
+                        && !JSON.parse("[" + localStorage.getItem('registeredEvents') + "]").includes(event['id'])
+                        && event["maxCountOfStudents"] > event['registeredStudents'].length) {
 
                         evenum.push(i);
                         localevents.push(event);
@@ -51,7 +53,6 @@ class Events extends React.Component {
         if (localStorage < 7)
             document.location.href = "#/";
 
-
         if (this.state.isRegistered > -1) {
             return (
                 <div>
@@ -69,12 +70,13 @@ class Events extends React.Component {
                 </div>
             );
         }
+
         if (this.state.isRegistered === -2) {
             return (
                 <div>
                     <div className="card_results">
                         <div className="result_text">Не успешно!</div>
-                        <div className="registr_text">Вы не смогли записаться на событие, так как все места уже
+\                        <div className="registr_text">Вы не смогли записаться на событие, так как все места уже
                             закончились
                         </div>
                         <div className="registr_button" onClick={() => {
@@ -197,6 +199,7 @@ class Events extends React.Component {
                                             });
                                         }
                                     } else {
+
                                         this.setState({
                                             isRegistered: -2
                                         });
