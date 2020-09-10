@@ -32,7 +32,7 @@
 
 
     background: #EEEEEE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 0.8em;
 }
 .card_results {
@@ -44,7 +44,7 @@
     height: 34em;
 
     background: #EEEEEE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 
@@ -58,7 +58,7 @@
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(0.9em + 1vw);
     line-height: 31px;
 
     color: #000000;
@@ -69,14 +69,46 @@
 
     color: #FFFFFF;
     position: relative;
-    top: 50px;
+    top: 2rem;
     left: 3%;
     border-radius: 0.4em;
-    height: 40px;
+    height: 2rem;
     border: #EEEEEE;
+    font-size: calc(0.4em + 0.8vw);
 
     padding-top: 20px;
     padding-left: 10px;
+}
+.results_charts {
+
+    position: relative;
+    top: 20px;
+    left: 3%;
+    width: 94%;
+
+}
+.results_radar {
+
+    position: absolute;
+    width: 44%;
+    left: 3%;
+    height: 64px;
+    top: 455px;
+
+    cursor: pointer;
+    background: #D4D4D4;
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc(1em + 1vw);
+    line-height: 31px;
+    text-align: center;
+
+    color: #000000;
+
 }
 
 .img {
@@ -89,7 +121,48 @@
     background: #FFFFFF;
     border-radius: 8px;
 }
+.img_logo {
 
+    position: relative;
+
+    top: 2rem;
+    margin: auto;
+    left: 10%;
+    width: 80%;
+    max-width: 44em;
+
+    border-radius: 8px;
+}
+.img_rec {
+
+     position: absolute;
+
+     top: -2rem;
+     right: -1rem;
+     width: 6rem;
+ }
+.text{
+    position: relative;
+
+    top: 1rem;
+    width: 90%;
+    height: 3.5rem;
+    margin: auto;
+
+    background: #F9F9F9;
+    border-radius: 8px;
+}
+.starting-text{
+     position: relative;
+
+     bottom: 1rem;
+     width: 90%;
+     height: 3.5rem;
+     margin: auto;
+
+     background: #F9F9F9;
+     border-radius: 8px;
+ }
 .card-text {
 
     position: relative;
@@ -119,17 +192,18 @@
 
 
     background: #EEEEEE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 
 .stars {
     position: relative;
-    font-size: 4.0rem;
-    text-align: center;
-    top: -0.25em;
+    font-size: calc(3.0rem + 1vw);
+    top: -1vw;
 
 }
+
+
 
 #Rectangle-1 {
 
@@ -164,6 +238,22 @@
     background: #DDDDDD;
 }
 
+.mini_logo1 {
+
+    position: absolute;
+
+    top: 0.3rem;
+    left: 2em;
+    height: 3.8rem;
+}
+.mini_logo2 {
+
+    position: absolute;
+
+    top: 0.3rem;
+    left: 6.5em;
+    height: 3.8rem;
+}
 .fade {
     animation: fade-in-keyframes 1s;
 }
@@ -361,13 +451,35 @@ body {
 
     cursor: pointer;
     background: #EEEEEE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 
     font-family: Rubik, serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
+    line-height: 31px;
+    text-align: center;
+
+    color: #000000;
+}
+.button_next_prog {
+    /* Rectangle 4 */
+    position: absolute;
+    width: 44%;
+    left: 53%;
+    height: 64px;
+    top: 455px;
+
+    cursor: pointer;
+    background: #D4D4D4;
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc(1em + 1vw);
     line-height: 31px;
     text-align: center;
 
@@ -380,7 +492,7 @@ body {
     width: 80%;
     height: 126px;
     left: 10%;
-    top: 0px;
+    top: 0;
 
     font-family: Rubik, serif;
     font-style: normal;
@@ -392,7 +504,48 @@ body {
 
     color: #000000;
 }
+div{
+    /**
+             * Для эксплорера
+             */
+    -ms-user-select: none;
 
+    /**
+     * Для мозилы
+     */
+    -moz-user-select: none;
+
+    /**
+     * Для конкверора
+     */
+    -khtml-user-select: none;
+
+    /**
+     * Для Сафари и Хрома
+     */
+    -webkit-user-select: none;
+}
+div{
+    /**
+             * Для эксплорера
+             */
+    -ms-user-select: none;
+
+    /**
+     * Для мозилы
+     */
+    -moz-user-select: none;
+
+    /**
+     * Для конкверора
+     */
+    -khtml-user-select: none;
+
+    /**
+     * Для Сафари и Хрома
+     */
+    -webkit-user-select: none;
+}
 .registr_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
 
@@ -401,6 +554,23 @@ body {
     width: 80%;
     left: 10%;
     top: 20%;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: calc(0.9em  + 0.2vw);
+    line-height: 19px;
+
+    color: #000000;
+}
+.Event_text {
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 10%;
 
     font-family: Rubik, serif;
     font-style: normal;
@@ -445,6 +615,26 @@ body {
 
      color: #000000;
  }
+.automargin{
+    margin: auto;
+}
+.reiting{
+    /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
+
+
+    position: absolute;
+    width: 94%;
+    left: 3%;
+    top: 60px;
+
+    font-family: Rubik, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: calc(0.3em + 1vw);
+    line-height: 19px;
+
+    color: #000000;
+}
 
 .card-start_text {
     /* Расписание событий по профориентации для школьников Адмиралтейского района будут доступны после регистрации. Для этого введите свой номер телефона и укажите номер школы. */
@@ -465,8 +655,12 @@ body {
 }
 
 .inner {
-    position: relative;
-    top: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
 }
 .registr_button {
     /* Rectangle 4 */
@@ -483,7 +677,7 @@ body {
 
     text-align: center;
     background: #EEEEEE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 0.8em;
 }
 .button_answer {
@@ -500,7 +694,7 @@ body {
 
     text-align: center;
     background: #CECECE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 .registr_button_next {
@@ -518,7 +712,7 @@ body {
 
     text-align: center;
     background: #CECECE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 .registr_button_registr {
@@ -536,7 +730,7 @@ body {
 
      text-align: center;
      background: #CECEDE;
-     box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+     box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
      border-radius: 8px;
  }
 
@@ -555,7 +749,7 @@ body {
 
     text-align: center;
     background: #CECECE;
-    box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 64px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 

@@ -22,7 +22,7 @@ class Rating extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/students/', {headers: {'Access-Control-Allow-Origin': true}})
+        axios.get('http://127.0.0.1:8000/api/students/')
             .then(res => {
 
                 res.data.sort(function (a, b) {
@@ -49,10 +49,10 @@ class Rating extends React.Component {
                 console.log("i = " + i);
                 let datas = res.data;
 
-                res.data = datas.slice(i - 10, i + 10);
+                res.data = datas.slice(Math.max(i - 10, 0), Math.min(i + 10,datas.length));
                 this.setState({
                     students: res.data,
-                    Rate_index: Math.max(0, i - 10)
+                    Rate_index: Math.max(1, i - 10+1)
                 });
                 console.log(res.data);
 
@@ -90,12 +90,13 @@ class Rating extends React.Component {
                 <div>
                     <div className="card">
                         <div className="result_text">Рейтинг</div>
-                        <div className="registr_text_0">
-                            <table>
+                        <div className="reiting">
+                            <table className="automargin">
                                 <tbody>
                                 <tr>
                                     <td>Место</td>
-                                    <td>Телефон</td>
+                                    <td>Имя</td>
+                                    <td>Фамилия</td>
                                     <td>Школа</td>
                                     <td>Сумма баллов</td>
                                 </tr>
@@ -106,14 +107,16 @@ class Rating extends React.Component {
                                             return (
                                                 <tr className="card_option4_true" key={i}>
                                                     <td>{i + this.state.Rate_index}</td>
-                                                    <td>{row['phone']}</td>
+                                                    <td>{row['firstName'].length > 7 ? row['firstName'].substring(0,6) +'...':row['firstName']}</td>
+                                                    <td>{row['lastName'].length > 11 ? row['lastName'].substring(0,10) +'...':row['lastName']}</td>
                                                     <td>{row['School']}</td>
                                                     <td>{row['Results'] >= 0 ? row['Results'] : textN}</td>
                                                 </tr>);
                                         return (
                                             <tr className="card_option5_true" key={i}>
                                                 <td>{i + this.state.Rate_index}</td>
-                                                <td>{row['phone']}</td>
+                                                <td>{row['firstName'].length > 7 ? row['firstName'].substring(0,6) +'...':row['firstName']}</td>
+                                                <td>{row['lastName'].length > 11 ? row['lastName'].substring(0,10) +'...':row['lastName']}</td>
                                                 <td>{row['School']}</td>
                                                 <td>{row['Results'] >= 0 ? row['Results'] : textN}</td>
                                             </tr>);

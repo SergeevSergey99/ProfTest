@@ -98,8 +98,8 @@ class Quiz2 extends React.Component {
                 >
                     <div className="card_results">
                         <div className="result_text">
-                            <p><h2>Задание</h2></p>
-                            <p><h4>Далее будут представлены списки кружков</h4></p>
+                            <h2>Задание</h2>
+                            <h4>Далее будут представлены списки кружков</h4>
                             <p>Выберите наиболее интересный из представленных</p>
                         </div>
                         <div className="registr_button_exit" onClick={() => {
@@ -159,17 +159,15 @@ class Quiz2 extends React.Component {
         Superstate2.__Soc += this.state._Soc;
         Superstate2.__Hud += this.state._Hud;
 
-        axios.put('/api/students/' + localStorage.getItem('Id') + '/updateResults/', {
+        axios.put('http://127.0.0.1:8000/api/students/' + localStorage.getItem('Id') + '/updateResults/', {
             WayHud:Superstate2.__Hud,
             WayNat:Superstate2.__Nat,
             WayTech:Superstate2.__Tech,
             WayNum:Superstate2.__Num,
             WaySoc:Superstate2.__Soc
-        }, {headers: {'Access-Control-Allow-Origin': true, "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"}})
+        })
             .then(res => console.log(res))
             .catch(err => console.log(err));
-
-//        sp.updateRow(localStorage.getItem('Phone'), localStorage.getItem('School'), Superstate2.__Nat, Superstate2.__Hud, Superstate2.__Tech, Superstate2.__Num, Superstate2.__Soc);
 
         localStorage.setItem('Hud', Superstate2.__Hud.toString());
         localStorage.setItem('Nat', Superstate2.__Nat.toString());

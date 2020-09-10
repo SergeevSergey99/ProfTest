@@ -100,8 +100,8 @@ class Quiz extends React.Component {
 
                     <div className="card_results">
                         <div className="result_text">
-                            <p><h2>Внимание</h2></p>
-                            <p><h4>Вы уже прошли тест</h4></p>
+                            <h2>Внимание</h2>
+                            <h4>Вы уже прошли тест</h4>
                             <p>Вы можете посмотреть свои результаты в разделе "Результаты"</p>
                             <p>Если Вы хотите пройти тест заново, свяжитесь с нами по номеру +7(***)-***-**-**</p>
                         </div>
@@ -126,8 +126,8 @@ class Quiz extends React.Component {
                 >
                     <div className="card_results">
                         <div className="result_text">
-                            <p><h2>Задание</h2></p>
-                            <p><h4>Далее будут представлены виды занятий</h4></p>
+                            <h2>Задание</h2>
+                            <h4>Далее будут представлены виды занятий</h4>
                             <p>Оцените насколько они вам интересны по 5-ти балльной шкале</p>
                         </div>
                         <div className="registr_button_exit" onClick={() => {
@@ -186,12 +186,14 @@ class Quiz extends React.Component {
                         </div>
                         <div className="grade">
                             <div className="stars">
+                                <div className="inner">
                                 <StarRatingComponent
                                     name="rate1"
                                     starCount={5}
                                     value={rating}
                                     onStarClick={this.onStarClick.bind(this)}
                                 />
+                                </div>
                             </div>
                         </div>
                     </div>
